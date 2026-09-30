@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simply The Best Drywall · Elk Grove drywall repair</title>
+<meta name="description" content="Family owned drywall repair in Elk Grove. Cosmetic repairs and texture matching so you're never reminded of the crack or hole again. Call (916) 289-1026.">
+<meta name="theme-color" content="#0e1b20">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/ceiling-after.webp" imagesrcset="assets/img/ceiling-after.webp 450w, assets/img/ceiling-after@2x.webp 900w" imagesizes="(min-width: 980px) 420px, 92vw">
+<link rel="stylesheet" href="assets/base.css?v=3">
+<style>
+  :root {
+    --base: #0e1b20;
+    --teal-2: #3f6b70;
+    --rose: #8a6570;
+    --umber: #9a8062;
+    --sand: #d4bb9f;
+    --sand-2: #e8d6c1;
+    --ink: #f4eee8;
+    --ink-2: #c6ccca;
+    --muted: #9aa7a6;
+    --glass: rgba(255, 255, 255, .07);
+    --glass-2: rgba(255, 255, 255, .12);
+    --edge: rgba(255, 255, 255, .18);
+    --hair: rgba(255, 255, 255, .12);
+    --focus: var(--sand-2);
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --r-lg: 32px;
+    --r-md: 22px;
+    --gap: clamp(20px, 3vw, 32px);
+    --section: clamp(72px, 9vw, 112px);
+    --skim-crack: #15252b;
+    --skim-lip: rgba(255, 255, 255, .14);
+    --skim-sheen: rgba(232, 214, 193, .55);
+    --skip-bg: var(--sand); --skip-fg: var(--base);
+    color-scheme: dark;
+  }
+  body { background: var(--base); color: var(--ink); font: 400 1.0625rem/1.6 "Figtree", system-ui, sans-serif; caret-color: var(--sand-2); scrollbar-color: rgba(232,214,193,.35) var(--base); }
+  ::selection { background: var(--sand-2); color: var(--base); }
+  a { text-underline-offset: .2em; text-decoration-thickness: 1px; }
+
+  /* Ambient: three blurred fields drifting very slowly under everything. */
+  .mesh { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
+  .mesh i { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .7; }
+  .mesh i:nth-child(1) { width: 60vmax; height: 60vmax; left: -12vmax; top: -18vmax; background: var(--teal-2); animation: m1 40s ease-in-out infinite alternate; }
+  .mesh i:nth-child(2) { width: 50vmax; height: 50vmax; right: -14vmax; top: 6vmax; background: var(--rose); opacity: .5; animation: m2 48s ease-in-out infinite alternate; }
+  .mesh i:nth-child(3) { width: 44vmax; height: 44vmax; left: 22vmax; bottom: -26vmax; background: var(--umber); opacity: .35; animation: m3 54s ease-in-out infinite alternate; }
+  @keyframes m1 { to { translate: 12vmax 8vmax; } }
+  @keyframes m2 { to { translate: -14vmax 10vmax; scale: 1.12; } }
+  @keyframes m3 { to { translate: -10vmax -12vmax; } }
+  .veil { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(14,27,32,.2), rgba(14,27,32,.6) 65%, rgba(14,27,32,.88)); }
+
+  .wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
+  @media (min-width: 720px) { .wrap { width: min(1200px, 100% - 64px); } }
+  .glass {
+    background: linear-gradient(150deg, var(--glass-2), var(--glass) 60%);
+    border: 1px solid var(--edge);
+    -webkit-backdrop-filter: blur(22px) saturate(150%); backdrop-filter: blur(22px) saturate(150%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 30px 60px -30px rgba(0,0,0,.55);
+  }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 24px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid transparent; transition: transform .3s cubic-bezier(.2,.7,.2,1), background .3s, color .3s; white-space: nowrap; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn-sand { background: var(--sand-2); color: #1d1a17; }
+  .btn-sand:hover { background: #fff; transform: translateY(-2px); }
+  .btn-glass { background: rgba(255,255,255,.08); border-color: var(--edge); color: var(--ink); }
+  .btn-glass:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+
+  /* Nav */
+  .nav { position: fixed; left: 0; right: 0; top: 14px; z-index: 50; }
+  /* A soft scrim so text scrolling under the floating nav never collides with it. */
+  .nav::before { content: ""; position: absolute; inset: -14px 0 -28px; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(14,27,32,.9), rgba(14,27,32,.6) 55%, rgba(14,27,32,0)); }
+  .nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .pill { display: flex; align-items: center; gap: 4px; padding: 6px; border-radius: 999px; }
+  .pill .logo { --logo-h: 26px; color: var(--ink); margin: 0 10px; }
+  .pill ul { display: none; list-style: none; margin: 0; padding: 0; gap: 2px; }
+  .pill ul a { display: block; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-size: .95rem; color: var(--ink-2); transition: background .25s, color .25s; }
+  .pill ul a:hover { background: rgba(255,255,255,.1); color: var(--ink); }
+  @media (min-width: 900px) { .pill ul { display: flex; } }
+  .nav .btn { min-height: 46px; padding: 0 18px; }
+  .nav .btn span { display: none; }
+  @media (min-width: 520px) { .nav .btn span { display: inline; } }
+
+  /* Hero: words on the left, the proof on the right, nothing hidden. */
+  .hero { padding: clamp(104px, 13vw, 148px) 0 clamp(56px, 7vw, 88px); }
+  .hero-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 980px) { .hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 0; } }
+  .slab { border-radius: var(--r-lg); padding: clamp(28px, 5vw, 64px); }
+  @media (min-width: 980px) { .slab { padding-right: clamp(96px, 10vw, 136px); } }
+  h1 { font-family: var(--display); font-weight: 700; font-variation-settings: "opsz" 96; font-size: clamp(2.6rem, 5.4vw, 5.2rem); line-height: .98; letter-spacing: -.038em; margin: 0; text-wrap: balance; }
+  h1 span { color: var(--sand-2); font-weight: 500; }
+  /* The skim runs along the headline's middle line and is sized to one line of type. */
+  .h1-wrap { position: relative; width: fit-content; max-width: 100%; }
+  .h1-wrap .seam { position: absolute; left: -4px; right: 0; top: 34%; height: 30%; --skim-knife-h: 150%; --skim-w: 2.4px; }
+  .lede { color: var(--ink-2); max-width: 30em; margin: 24px 0 0; font-size: clamp(1.05rem, 1.4vw, 1.2rem); }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 36px 0 0; padding: 22px 0 0; border-top: 1px solid var(--hair); list-style: none; font-size: .95rem; color: var(--ink-2); }
+  .facts b { color: var(--ink); font-weight: 600; }
+
+  .proof { position: relative; z-index: 2; margin: 0; border-radius: var(--r-lg); padding: 10px; width: min(100%, 460px); justify-self: center; }
+  @media (min-width: 980px) { .proof { width: calc(100% + 72px); max-width: 480px; margin-left: -72px; justify-self: start; } }
+  .proof .compare { aspect-ratio: 4 / 5; border-radius: calc(var(--r-lg) - 10px); }
+  .proof .compare img { object-position: 50% 30%; }
+  .proof figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; padding: 14px 10px 6px; font-size: .95rem; }
+  .proof figcaption b { font-family: var(--display); font-weight: 600; letter-spacing: -.01em; }
+  .proof figcaption span { color: var(--muted); }
+  .tag { padding: 6px 12px; border-radius: 999px; font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); background: rgba(14,27,32,.5); border: 1px solid rgba(255,255,255,.22); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .compare { --compare-line: var(--sand-2); }
+
+  section { scroll-margin-top: 88px; }
+  .section { padding: var(--section) 0 0; }
+  h2 { font-family: var(--display); font-weight: 700; font-variation-settings: "opsz" 72; font-size: clamp(2.1rem, 4.4vw, 3.6rem); line-height: 1.02; letter-spacing: -.034em; margin: 0; text-wrap: balance; }
+  h2 span { color: var(--sand-2); font-weight: 500; }
+  .head { display: grid; gap: 14px 48px; margin-bottom: 36px; }
+  @media (min-width: 900px) { .head { grid-template-columns: 1fr 1fr; align-items: end; } }
+  .head p { margin: 0; max-width: 34em; color: var(--ink-2); }
+
+  /* Work: three across on desktop, a swipeable row on phones. */
+  .work { display: grid; grid-auto-flow: column; grid-auto-columns: min(80%, 320px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 16px; margin-inline: -2px; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .work::-webkit-scrollbar { display: none; }
+  .work > * { scroll-snap-align: start; }
+  @media (min-width: 900px) { .work { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; padding: 0; margin: 0; } }
+  .shot { margin: 0; border-radius: var(--r-md); padding: 8px; }
+  .shot .compare, .shot video { aspect-ratio: 3 / 4; border-radius: calc(var(--r-md) - 8px); width: 100%; object-fit: cover; }
+  .shot figcaption { padding: 12px 8px 4px; }
+  .shot figcaption b { display: block; font-family: var(--display); font-size: 1.15rem; font-weight: 600; letter-spacing: -.01em; }
+  .shot figcaption span { color: var(--muted); font-size: .92rem; }
+  .swipe { margin: 4px 0 0; font-size: .9rem; color: var(--muted); }
+  @media (min-width: 900px) { .swipe { display: none; } }
+
+  /* Services: one panel, a list, not a grid of look-alike cards. */
+  .services { border-radius: var(--r-lg); padding: clamp(28px, 5vw, 64px); display: grid; gap: 32px; }
+  @media (min-width: 900px) { .services { grid-template-columns: .85fr 1.15fr; gap: 64px; } }
+  .services > div > p { color: var(--ink-2); margin: 20px 0 0; max-width: 30em; }
+  .list { list-style: none; margin: 0; padding: 0; }
+  .list li { display: grid; grid-template-columns: 28px 1fr; gap: 4px 16px; padding: 20px 0; border-top: 1px solid var(--hair); }
+  .list li:first-child { border-top: 0; padding-top: 0; }
+  .list li:last-child { padding-bottom: 0; }
+  .list svg { width: 24px; height: 24px; color: var(--sand-2); margin-top: 3px; grid-row: span 2; }
+  .list h3 { font-family: var(--display); font-weight: 600; font-size: 1.25rem; line-height: 1.35; letter-spacing: -.015em; margin: 0; }
+  .list p { margin: 0; color: var(--ink-2); }
+
+  /* Owner */
+  .ray { display: grid; gap: var(--gap); align-items: center; }
+  @media (min-width: 900px) { .ray { grid-template-columns: .8fr 1.2fr; gap: 64px; } }
+  .ray-photo { margin: 0; border-radius: var(--r-lg); padding: 10px; max-width: 460px; }
+  .ray-photo img { border-radius: calc(var(--r-lg) - 10px); width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .ray-photo figcaption { padding: 12px 8px 4px; color: var(--muted); font-size: .92rem; }
+  .ray p { color: var(--ink-2); max-width: 36em; margin: 20px 0 0; }
+  .ray blockquote { margin: 28px 0 0; padding: 0; font-family: var(--display); font-weight: 500; font-size: clamp(1.35rem, 2.3vw, 1.75rem); line-height: 1.35; letter-spacing: -.02em; max-width: 26em; }
+  .ray blockquote span { color: var(--sand-2); }
+
+  /* Contact */
+  .contact { border-radius: 36px; padding: clamp(28px, 5vw, 64px); display: grid; gap: 36px; }
+  @media (min-width: 960px) { .contact { grid-template-columns: .9fr 1.1fr; gap: 64px; } }
+  .promise { font-family: var(--display); font-weight: 500; font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.35; letter-spacing: -.015em; margin: 20px 0 0; color: var(--ink-2); max-width: 22em; }
+  .promise span { color: var(--ink); }
+  .phone-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.5rem); letter-spacing: -.03em; text-decoration: none; }
+  .phone-link svg { width: 28px; height: 28px; color: var(--sand-2); }
+  .phone-link:hover { color: var(--sand-2); }
+  .rev { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  form { display: grid; gap: 16px; align-content: start; }
+  .two { display: grid; gap: 16px; }
+  @media (min-width: 560px) { .two { grid-template-columns: 1fr 1fr; } }
+  label { display: grid; gap: 8px; font-size: .9rem; font-weight: 500; color: var(--ink-2); }
+  label abbr { color: var(--sand-2); text-decoration: none; }
+  input, textarea { width: 100%; min-height: 52px; padding: 12px 16px; border-radius: 16px; border: 1px solid var(--edge); background: rgba(14,27,32,.4); color: var(--ink); font-size: 1rem; transition: border-color .2s, background .2s; }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+  textarea { min-height: 128px; resize: vertical; }
+  input:focus, textarea:focus { outline: none; border-color: var(--sand-2); background: rgba(14,27,32,.55); box-shadow: 0 0 0 3px rgba(232,214,193,.2); }
+  input:user-invalid, textarea:user-invalid { border-color: #e0a39a; }
+  form .btn { justify-self: start; }
+  [data-form-status] { margin: 0; min-height: 1.4em; color: var(--sand-2); font-size: .92rem; }
+
+  footer { padding: var(--section) 0 36px; }
+  .foot { display: flex; flex-wrap: wrap; gap: 16px 24px; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--hair); color: var(--muted); font-size: .9rem; }
+  .foot .logo { --logo-h: 24px; color: var(--ink-2); }
+  .foot nav { display: flex; gap: 8px; }
+  .foot nav a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--hair); transition: background .2s, border-color .2s; }
+  .foot nav a:hover { background: rgba(255,255,255,.1); border-color: var(--edge); }
+  .foot svg { width: 18px; height: 18px; }
+
+  @media (prefers-reduced-motion: reduce) { .mesh i { animation: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="mesh" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="veil" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-texture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r=".8" fill="currentColor"/><circle cx="12" cy="10" r=".8" fill="currentColor"/><circle cx="16" cy="7" r=".8" fill="currentColor"/><circle cx="9" cy="14" r=".8" fill="currentColor"/><circle cx="15" cy="13" r=".8" fill="currentColor"/><circle cx="12" cy="17" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-ceiling" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M5 9h.01M9 8h.01M13 9h.01M17 8h.01M19 10h.01"/><path d="M12 13v7M9 17l3 3 3-3"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M6 12V5a2 2 0 0 1 3.4-1.4L10 4"/><path d="M7 20l-1 2M17 20l1 2"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3z"/><path d="M9 14.5a3 3 0 0 0 3 3"/></symbol>
+  <symbol id="i-patch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><rect x="8" y="8" width="8" height="8" rx="1" stroke-dasharray="2 2"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2A21 21 0 0 0 14.6 2C12.3 2 10.7 3.4 10.7 6v2.5H8V12h2.7v10H14V12h2.7l.4-3.5z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <nav class="pill glass" aria-label="Main">
+      <a href="#main" aria-label="Simply The Best Drywall, home"><span class="logo" role="img" aria-label="Simply The Best Drywall"></span></a>
+      <ul>
+        <li><a href="#work">Before &amp; After</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-sand" href="tel:+19162891026"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>(916) 289-1026</span><b class="sr-only">Call</b></a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="slab glass">
+        <div class="h1-wrap">
+          <h1>Not reminded of the crack. <span>Or the hole.</span></h1>
+          <div class="seam" id="skim-hero" data-skim data-skim-delay="700" data-skim-seed="61" data-skim-knife="assets/img/knife.webp"></div>
+        </div>
+        <p class="lede">We specialize in cosmetic repairs and matching existing textures, so every time you look at where it was, there's nothing to see.</p>
+        <div class="ctas">
+          <a class="btn btn-sand" href="#contact">Get a ballpark estimate <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn-glass" type="button" data-skim-replay="#skim-hero"><svg aria-hidden="true"><use href="#i-replay"/></svg>Watch it again</button>
+        </div>
+        <ul class="facts">
+          <li><b>Since 1996</b></li>
+          <li>16 yrs Union Local 487</li>
+          <li>Family owned</li>
+          <li>Elk Grove, CA</li>
+        </ul>
+      </div>
+
+      <figure class="proof glass">
+        <div class="compare" data-compare>
+          <img src="assets/img/ceiling-after.webp" srcset="assets/img/ceiling-after.webp 450w, assets/img/ceiling-after@2x.webp 900w" sizes="(min-width: 980px) 420px, 92vw" alt="After: the kitchen ceiling patched and textured, no opening visible" width="450" height="800" fetchpriority="high">
+          <div class="compare-before"><img src="assets/img/ceiling-before.webp" srcset="assets/img/ceiling-before.webp 450w, assets/img/ceiling-before@2x.webp 900w" sizes="(min-width: 980px) 420px, 92vw" alt="Before: a large rectangular opening cut into the textured kitchen ceiling" width="450" height="800"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Drag to compare the kitchen ceiling before and after">
+          <span class="compare-handle"></span>
+          <span class="compare-tag compare-tag--before tag">Before</span><span class="compare-tag compare-tag--after tag">After</span>
+        </div>
+        <figcaption><b>Kitchen ceiling</b><span>Opening closed, texture matched</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="head">
+        <h2>Drag across. <span>Try to find it.</span></h2>
+        <p>Real jobs, shot on Ray's phone. The stairwell, a ceiling respray, and Ray on the job scraping a popcorn ceiling.</p>
+      </div>
+      <div class="work" tabindex="0" aria-label="Before and after projects">
+        <figure class="shot glass">
+          <div class="compare" data-compare>
+            <img src="assets/img/stairs-after.webp" srcset="assets/img/stairs-after.webp 450w, assets/img/stairs-after@2x.webp 900w" sizes="(min-width: 900px) 370px, 80vw" alt="After: smooth, finished stairwell wall beside new wood floors" loading="lazy" width="450" height="800">
+            <div class="compare-before"><img src="assets/img/stairs-before.webp" srcset="assets/img/stairs-before.webp 450w, assets/img/stairs-before@2x.webp 900w" sizes="(min-width: 900px) 370px, 80vw" alt="Before: stairwell wall masked in plastic during the repair" loading="lazy" width="450" height="800"></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the stairwell before and after">
+            <span class="compare-handle"></span>
+            <span class="compare-tag compare-tag--before tag">Before</span><span class="compare-tag compare-tag--after tag">After</span>
+          </div>
+          <figcaption><b>Stairwell wall</b><span>Repaired and finished</span></figcaption>
+        </figure>
+        <figure class="shot glass">
+          <div class="compare" data-compare>
+            <img src="assets/img/skim-after.webp" srcset="assets/img/skim-after.webp 450w, assets/img/skim-after@2x.webp 900w" sizes="(min-width: 900px) 370px, 80vw" alt="After: ceiling with an even, matched texture" loading="lazy" width="450" height="800">
+            <div class="compare-before"><img src="assets/img/skim-before.webp" srcset="assets/img/skim-before.webp 450w, assets/img/skim-before@2x.webp 900w" sizes="(min-width: 900px) 370px, 80vw" alt="Before: ceiling patched with smooth compound, texture not yet sprayed" loading="lazy" width="450" height="800"></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the ceiling respray before and after">
+            <span class="compare-handle"></span>
+            <span class="compare-tag compare-tag--before tag">Before</span><span class="compare-tag compare-tag--after tag">After</span>
+          </div>
+          <figcaption><b>Ceiling respray</b><span>Texture matched</span></figcaption>
+        </figure>
+        <figure class="shot glass">
+          <video data-loop src="assets/video/popcorn-loop.mp4" poster="assets/video/popcorn-poster.jpg" autoplay muted loop playsinline preload="none" aria-label="Ray scraping a popcorn ceiling"></video>
+          <figcaption><b>Popcorn removal</b><span>Ray, on the job</span></figcaption>
+        </figure>
+      </div>
+      <p class="swipe">Swipe for more</p>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="services glass">
+        <div>
+          <h2>What we fix. <span>And how it looks after.</span></h2>
+          <p>We also focus on being attentive and on our customer service. With over 30 years of experience, we are proud to consider ourselves professionals.</p>
+        </div>
+        <ul class="list">
+          <li><svg aria-hidden="true"><use href="#i-texture"/></svg><h3>Cosmetic repairs &amp; texture matching</h3><p>Cracks, holes and old patches blended into the texture already on your walls and ceilings.</p></li>
+          <li><svg aria-hidden="true"><use href="#i-ceiling"/></svg><h3>Popcorn removal &amp; respray</h3><p>Ceilings scraped, prepped and resprayed for a clean, updated look.</p></li>
+          <li><svg aria-hidden="true"><use href="#i-bath"/></svg><h3>Bathroom retexture</h3><p>Imperfect smooth texture, redone right.</p></li>
+          <li><svg aria-hidden="true"><use href="#i-patch"/></svg><h3>Repairs &amp; patchwork</h3><p>Holes and cut-outs patched and finished to disappear.</p></li>
+          <li><svg aria-hidden="true"><use href="#i-drop"/></svg><h3>Water damage repair</h3><p>Damaged drywall cut out, replaced and blended back in.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap ray">
+      <figure class="ray-photo glass">
+        <img src="assets/img/ray-family.webp" srcset="assets/img/ray-family.webp 449w, assets/img/ray-family@2x.webp 898w" sizes="(min-width: 900px) 440px, 92vw" alt="Ray Abreu with his wife and children" loading="lazy" width="449" height="449">
+        <figcaption>Ray, with his wife and children</figcaption>
+      </figure>
+      <div>
+        <h2>Carlos Raymond Abreu. <span>Just call him Ray.</span></h2>
+        <p>Ray began his career in drywall in 1996, shortly after graduating high school. After a couple of years as a laborer and detailer, he joined the Painters and Tapers Union Local 487, where his commitment to excellence was refined over about 16 years. Today he's a residential specialist who has made a name for himself and his company.</p>
+        <blockquote>“Once I'm in your phone as your drywall guy and have completed a job for you, that's who I become: <span>your drywall guy!</span>”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact glass">
+        <div>
+          <h2>Contact us for a <span>ballpark</span> or estimate.</h2>
+          <p class="promise">We are honest, trustworthy and will treat you like <span>the valued customer that you are.</span></p>
+          <a class="phone-link" href="tel:+19162891026"><svg aria-hidden="true"><use href="#i-phone"/></svg>(916) 289-1026</a>
+          <div class="rev">
+            <a class="btn btn-glass" href="http://yelp.com/biz/simply-the-best-drywall-elk-grove" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-star"/></svg>Reviews on Yelp</a>
+            <a class="btn btn-glass" href="http://www.homeadvisor.com/rated.SimplyTheBest.14765959.html" target="_blank" rel="noopener">Rated on HomeAdvisor</a>
+          </div>
+        </div>
+        <form data-demo-form>
+          <div class="two">
+            <label><span>First name <abbr title="required">*</abbr></span><input name="first" autocomplete="given-name" required></label>
+            <label><span>Last name <abbr title="required">*</abbr></span><input name="last" autocomplete="family-name" required></label>
+          </div>
+          <div class="two">
+            <label><span>Email <abbr title="required">*</abbr></span><input type="email" name="email" autocomplete="email" required></label>
+            <label><span>Phone <abbr title="required">*</abbr></span><input type="tel" name="phone" autocomplete="tel" required></label>
+          </div>
+          <label><span>Inquiry / job details <abbr title="required">*</abbr></span><textarea name="details" required placeholder="What needs fixing, and roughly how big is it?"></textarea></label>
+          <button class="btn btn-sand" type="submit">Send my request <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p data-form-status role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo" role="img" aria-label="Simply The Best Drywall"></span>
+    <span>© 2026 Simply The Best Drywall · Elk Grove, CA</span>
+    <nav aria-label="Social">
+      <a href="https://www.facebook.com/simplythebestdrywall/" target="_blank" rel="noopener" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a href="http://yelp.com/biz/simply-the-best-drywall-elk-grove" target="_blank" rel="noopener" aria-label="Yelp"><svg aria-hidden="true"><use href="#i-star"/></svg></a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/stb.js?v=3"></script>
+</body>
+</html>
