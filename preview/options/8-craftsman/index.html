@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simply The Best Drywall · Drywall repair & texture matching, Elk Grove</title>
+<meta name="description" content="Owner-operated drywall repair in Elk Grove and the Sacramento area. Cosmetic repairs and texture matching so you're never reminded of the crack or hole again. 4.7 stars on Yelp. Call (916) 289-1026.">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/base.css?v=3">
+<style>
+  :root {
+    --bg: #09090b;
+    --bg-2: #0f0f12;
+    --card: #131316;
+    --card-2: #18181c;
+    --line: rgba(255, 255, 255, .08);
+    --line-2: rgba(255, 255, 255, .14);
+    --ink: #f5f5f4;
+    --ink-2: #b4b4bb;
+    --muted: #8c8c95;
+    --red: #cf3438;
+    --red-2: #ef6266;
+    --red-text: #e5484d;
+    --red-soft: rgba(207, 52, 56, .14);
+    --red-edge: rgba(207, 52, 56, .45);
+    --focus: var(--red-2);
+    --display: "Space Grotesk", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --r: 18px;
+    --section: clamp(88px, 10vw, 136px);
+    --skim-crack: #09090b;
+    --skim-lip: rgba(255, 255, 255, .12);
+    --skim-sheen: rgba(239, 98, 102, .45);
+    --skip-bg: var(--red); --skip-fg: #fff;
+    color-scheme: dark;
+  }
+  html { scroll-padding-top: 88px; }
+  body { background: var(--bg); color: var(--ink); font: 400 1rem/1.65 "Inter", system-ui, sans-serif; caret-color: var(--red); scrollbar-color: #2a2a30 var(--bg); }
+  ::selection { background: var(--red); color: #fff; }
+  a { text-underline-offset: .2em; text-decoration-thickness: 1px; }
+  .wrap { width: min(1240px, 100% - 32px); margin-inline: auto; }
+  @media (min-width: 720px) { .wrap { width: min(1240px, 100% - 64px); } }
+  .mono { font-family: var(--mono); font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
+  .label { color: var(--red-2); }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--red-edge); background: var(--red-soft); color: var(--red-2); }
+  .pill svg { width: 14px; height: 14px; }
+  h2 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(2rem, 4.4vw, 3.6rem); line-height: 1.02; letter-spacing: -.02em; margin: 14px 0 0; text-wrap: balance; }
+  h2 em { font-style: normal; color: var(--red-text); }
+  .lede { color: var(--ink-2); max-width: 38em; margin: 18px 0 0; font-size: 1.05rem; }
+  .center { text-align: center; }
+  .center .lede { margin-inline: auto; }
+
+  /* Buttons: a sharp primary with a gentle magnetic pull, and a quiet outline. */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 10px; font-family: var(--mono); font-size: .8rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; white-space: nowrap; transition: background .25s, border-color .25s, color .25s, box-shadow .25s; }
+  .btn svg { width: 17px; height: 17px; flex: none; }
+  .btn-red { background: var(--red); color: #fff; box-shadow: 0 12px 30px -14px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.18); }
+  .btn-red:hover { background: #b82c30; }
+  .btn-line { border-color: var(--line-2); color: var(--ink); background: rgba(255,255,255,.02); }
+  .btn-line:hover { border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.05); }
+  [data-magnetic] { transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s, box-shadow .25s; }
+
+  /* Reading progress: a thin red line, like the template's. */
+  .progress { position: fixed; inset: 0 0 auto; height: 2px; z-index: 70; transform-origin: 0 50%; transform: scaleX(var(--p, 0)); background: var(--red); }
+
+  /* ---------- Header ---------- */
+  .top { position: fixed; inset: 0 0 auto; z-index: 60; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+  .top.is-stuck { background: rgba(9,9,11,.82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-color: var(--line); }
+  .top .wrap { display: flex; align-items: center; gap: 20px; min-height: 76px; }
+  .top .logo { --logo-h: 30px; color: var(--ink); }
+  .top nav { margin-left: auto; display: none; }
+  .top nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .top nav a { display: block; padding: 10px 12px; border-radius: 8px; font-size: .92rem; color: var(--ink-2); text-decoration: none; transition: color .2s, background .2s; }
+  .top nav a:hover { color: var(--ink); background: rgba(255,255,255,.05); }
+  .quote { margin-left: auto; min-height: 44px; padding: 0 16px; border-color: var(--red-edge); background: rgba(207,52,56,.08); }
+  .quote:hover { background: #b82c30; border-color: #b82c30; }
+  .quote span { display: none; }
+  @media (min-width: 560px) { .quote span { display: inline; } }
+  .menu-btn { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--line-2); background: none; color: var(--ink); }
+  .menu-btn svg { width: 20px; height: 20px; }
+  @media (min-width: 1000px) { .top nav { display: block; } .quote { margin-left: 8px; } .menu-btn { display: none; } }
+  .sheet { position: fixed; inset: 76px 12px auto; z-index: 59; padding: 10px; border-radius: 14px; background: rgba(15,15,18,.96); border: 1px solid var(--line-2); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); display: none; }
+  .sheet.is-open { display: block; }
+  .sheet a { display: block; padding: 14px 14px; border-radius: 10px; color: var(--ink); text-decoration: none; font-family: var(--display); font-size: 1.15rem; font-weight: 600; }
+  .sheet a:hover { background: rgba(255,255,255,.05); }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; min-height: min(100svh, 1000px); display: grid; align-items: center; padding: 116px 0 0; overflow: hidden; isolation: isolate; }
+  .hero-bg { position: absolute; inset: 0; z-index: -2; }
+  .hero-bg img, .hero-bg video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; }
+  .hero-bg video { opacity: 0; transition: opacity 1.2s ease; }
+  .hero-bg video.is-ready { opacity: 1; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(90deg, rgba(9,9,11,.95) 0%, rgba(9,9,11,.82) 36%, rgba(9,9,11,.28) 66%, rgba(9,9,11,.35) 100%), linear-gradient(180deg, rgba(9,9,11,.45), transparent 26%, transparent 72%, var(--bg));
+  }
+  .hero-grid { display: grid; gap: 48px; align-items: center; padding-bottom: 40px; }
+  @media (min-width: 1040px) { .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 56px; } }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 6px; border: 1px solid var(--line-2); background: rgba(9,9,11,.55); color: var(--ink-2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .chip svg { width: 14px; height: 14px; color: var(--red-2); }
+  .hero .label { display: block; margin-top: 30px; }
+  .h1-wrap { position: relative; width: fit-content; max-width: 100%; margin-top: 14px; }
+  h1 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(3.2rem, 7.4vw, 6.4rem); line-height: .96; letter-spacing: -.035em; }
+  h1 span { display: block; }
+  h1 .red { color: var(--red-text); }
+  .h1-wrap .seam { position: absolute; left: -6px; right: -6px; top: 6%; height: 40%; --skim-knife-h: 120%; --skim-w: 3px; }
+  .hero-lede { color: var(--ink-2); max-width: 31em; margin: 26px 0 0; font-size: clamp(1.05rem, 1.3vw, 1.15rem); }
+  .stats { display: flex; flex-wrap: wrap; gap: 20px 44px; margin: 34px 0 0; padding: 0; list-style: none; }
+  .stats b { display: block; font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .stats b small { font-size: max(.55em, 13px); color: var(--red-2); margin-left: 2px; }
+  .stats span { display: block; margin-top: 8px; color: var(--muted); }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .proof-line { display: flex; align-items: center; gap: 10px; margin-top: 22px; color: var(--muted); }
+  .stars { display: inline-flex; gap: 2px; color: var(--red-2); }
+  .stars svg { width: 14px; height: 14px; }
+
+  /* The floating project card with its thumbnail switcher. */
+  .showcase { width: 100%; max-width: 560px; justify-self: center; }
+  @media (min-width: 1040px) { .showcase { justify-self: end; } }
+  .stage { position: relative; border-radius: var(--r); padding: 8px; background: rgba(19,19,22,.72); border: 1px solid var(--line-2); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9); }
+  .slides { position: relative; aspect-ratio: 4 / 3.4; border-radius: 12px; overflow: hidden; background: #000; }
+  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility 0s .6s; }
+  .slide.is-on { opacity: 1; visibility: visible; transition: opacity .6s ease; }
+  .slide .compare, .slide video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .slide .compare img { object-position: 50% 32%; }
+  .slide-meta { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; justify-content: space-between; gap: 8px; pointer-events: none; z-index: 4; }
+  .tag { padding: 6px 10px; border-radius: 6px; background: rgba(9,9,11,.72); border: 1px solid var(--line-2); color: var(--ink); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .compare { --compare-line: #fff; --compare-knob: rgba(207,52,56,.55); }
+  .compare .compare-tag { top: 12px; bottom: auto; }
+  .thumbs { display: flex; gap: 10px; margin-top: 14px; justify-content: flex-end; }
+  .thumb { position: relative; width: 84px; height: 60px; padding: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line-2); background: #000; opacity: .55; transition: opacity .25s, border-color .25s; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .thumb:hover { opacity: .85; }
+  .thumb[aria-selected="true"] { opacity: 1; border-color: var(--red); }
+  .thumb i { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); }
+  .thumb[aria-selected="true"] i { animation: fill var(--dwell, 7s) linear forwards; }
+  .showcase.is-paused .thumb i { animation-play-state: paused; }
+  @keyframes fill { to { width: 100%; } }
+  .card-caption { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; color: var(--muted); }
+
+  .trust { border-top: 1px solid var(--line); background: rgba(9,9,11,.6); }
+  .trust .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 34px; min-height: 64px; padding-block: 14px; color: var(--ink-2); }
+  .trust span { display: inline-flex; align-items: center; gap: 10px; }
+  .trust svg { width: 16px; height: 16px; color: var(--red-2); }
+  .trust .scroll { margin-left: auto; color: var(--muted); }
+  @media (max-width: 760px) { .trust .scroll { display: none; } }
+
+  section { scroll-margin-top: 88px; }
+  .section { padding-top: var(--section); }
+
+  /* ---------- Textures ---------- */
+  .tex { display: grid; gap: 20px; margin-top: 52px; }
+  @media (min-width: 960px) { .tex { grid-template-columns: .9fr 1.1fr; } }
+  .tex-list { display: grid; gap: 12px; align-content: start; }
+  .tex-opt { display: grid; grid-template-columns: 44px 1fr; gap: 4px 16px; text-align: left; padding: 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); color: var(--ink); transition: border-color .25s, background .25s; }
+  .tex-opt:hover { border-color: var(--line-2); }
+  .tex-opt[aria-selected="true"] { border-color: var(--red-edge); background: linear-gradient(135deg, rgba(207,52,56,.09), var(--card) 60%); }
+  .tex-opt .ic { grid-row: span 3; width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; border: 1px solid var(--line-2); color: var(--red-2); }
+  .tex-opt[aria-selected="true"] .ic { border-color: var(--red-edge); background: var(--red-soft); }
+  .tex-opt .ic svg { width: 20px; height: 20px; }
+  .tex-opt b { font-family: var(--display); font-size: 1.15rem; font-weight: 600; }
+  .tex-opt .mono { color: var(--muted); letter-spacing: .01em; text-transform: none; font-size: .82rem; }
+  .tex-opt p { margin: 4px 0 0; color: var(--ink-2); font-size: .95rem; display: none; }
+  .tex-opt[aria-selected="true"] p { display: block; }
+  .tex-view { position: relative; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-2); min-height: 360px; background: #111; }
+  .tex-view img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease, transform 6s ease; transform: scale(1.06); }
+  .tex-view img.is-on { opacity: 1; transform: scale(1); }
+  .tex-view .tag { position: absolute; left: 14px; top: 14px; z-index: 2; }
+  .tex-view .note { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 2; padding: 14px 16px; border-radius: 12px; background: rgba(9,9,11,.78); border: 1px solid var(--line-2); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .tex-view .note b { font-family: var(--display); font-size: 1.1rem; }
+  .tex-view .note p { margin: 4px 0 0; color: var(--ink-2); font-size: .92rem; }
+  .callout { margin-top: 20px; display: grid; gap: 20px; align-items: center; padding: clamp(24px, 4vw, 40px); border-radius: var(--r); border: 1px solid var(--line); background: radial-gradient(120% 140% at 0% 0%, rgba(207,52,56,.12), transparent 50%), var(--card); }
+  @media (min-width: 860px) { .callout { grid-template-columns: 1fr auto; } }
+  .callout h3 { margin: 10px 0 0; font-family: var(--display); font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; }
+  .callout p { margin: 10px 0 0; color: var(--ink-2); max-width: 40em; }
+
+  /* ---------- Repairs ---------- */
+  .repairs { background: linear-gradient(180deg, var(--bg), var(--bg-2) 20%, var(--bg-2) 80%, var(--bg)); padding-bottom: 8px; }
+  .systems { display: grid; gap: 20px; margin-top: 52px; }
+  @media (min-width: 900px) { .systems { grid-template-columns: 1fr 1fr; } }
+  .system { position: relative; padding: clamp(24px, 3.4vw, 36px); border-radius: var(--r); border: 1px solid var(--line); background: var(--card); overflow: hidden; }
+  .system::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); opacity: .7; }
+  .system h3 { margin: 12px 0 0; font-family: var(--display); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; line-height: 1.1; }
+  .system .sub { display: block; margin-top: 8px; color: var(--muted); letter-spacing: .04em; text-transform: none; }
+  .system > p { color: var(--ink-2); margin: 16px 0 0; }
+  .system hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0 18px; }
+  .system ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
+  .system li { display: flex; gap: 10px; align-items: baseline; color: var(--ink); }
+  .system li::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--red); flex: none; translate: 0 -2px; }
+  .tiles { display: grid; gap: 14px; margin-top: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .tile { padding: 22px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); transition: border-color .25s, translate .35s cubic-bezier(.2,.8,.2,1); }
+  .tile:hover { border-color: var(--line-2); translate: 0 -3px; }
+  .tile svg { width: 22px; height: 22px; color: var(--red-2); }
+  .tile b { display: block; margin-top: 14px; font-family: var(--mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+  .tile p { margin: 6px 0 0; color: var(--ink-2); font-size: .93rem; }
+  .footnote { margin: 24px 0 0; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+  /* ---------- Work (filterable) ---------- */
+  .work-head { display: grid; gap: 20px; align-items: end; }
+  @media (min-width: 960px) { .work-head { grid-template-columns: 1fr auto; } }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filters button { min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--line-2); background: none; color: var(--ink-2); font-size: .9rem; transition: all .2s; }
+  .filters button:hover { color: var(--ink); border-color: rgba(255,255,255,.3); }
+  .filters button[aria-pressed="true"] { color: #fff; border-color: var(--red); background: var(--red-soft); }
+  .grid { display: grid; gap: 18px; margin-top: 40px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+  .job { display: flex; flex-direction: column; border-radius: var(--r); border: 1px solid var(--line); background: var(--card); overflow: hidden; transition: border-color .25s, opacity .35s, transform .35s cubic-bezier(.2,.8,.2,1); }
+  .job:hover { border-color: var(--line-2); }
+  .job[hidden] { display: none; }
+  .job.is-entering { opacity: 0; transform: translateY(10px); }
+  .job-media { position: relative; aspect-ratio: 4 / 3.2; background: #000; }
+  .job-media .compare, .job-media video, .job-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .job-media .kind { position: absolute; left: 12px; top: 12px; z-index: 4; pointer-events: none; }
+  .job-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .job-meta { display: flex; gap: 16px; color: var(--muted); }
+  .job-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .job-meta svg { width: 13px; height: 13px; color: var(--red-2); }
+  .job h3 { margin: 0; font-family: var(--display); font-size: 1.25rem; font-weight: 600; letter-spacing: -.01em; }
+  .job p { margin: 0; color: var(--ink-2); font-size: .95rem; }
+  .specs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
+  .specs span { padding: 5px 8px; border-radius: 6px; border: 1px solid var(--line); background: rgba(255,255,255,.02); color: var(--ink-2); font-family: var(--mono); font-size: .78rem; }
+  .job--cta { justify-content: center; align-items: flex-start; padding: 28px; border-style: dashed; border-color: var(--line-2); background: radial-gradient(100% 100% at 100% 0%, rgba(207,52,56,.12), transparent 60%), var(--card); gap: 14px; }
+  .job--cta h3 { font-size: 1.6rem; text-transform: uppercase; font-weight: 700; }
+
+  /* ---------- Reviews ---------- */
+  .rev-head { display: grid; gap: 20px; align-items: end; }
+  @media (min-width: 900px) { .rev-head { grid-template-columns: 1fr auto; } }
+  .score { display: inline-flex; align-items: center; gap: 16px; padding: 14px 18px; border-radius: 14px; border: 1px solid var(--line-2); background: var(--card); text-decoration: none; color: var(--ink); transition: border-color .2s; }
+  .score:hover { border-color: var(--red-edge); }
+  .score b { font-family: var(--display); font-size: 2.2rem; font-weight: 700; line-height: 1; }
+  .score .stars svg { width: 16px; height: 16px; }
+  .score small { display: block; margin-top: 4px; color: var(--muted); font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+  .yelp-row { display: grid; gap: 18px; margin-top: 40px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .yelp-card { border-radius: 12px; min-height: 160px; overflow: hidden; }
+  .yelp-card iframe { width: 100% !important; display: block; border-radius: 12px; }
+  .yelp-card .fallback { background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: var(--ink-2) !important; }
+  .yelp-card .fallback a { color: var(--red-2) !important; }
+  .yelp-card .yelp-review { display: block; }
+  .yelp-card .fallback { display: grid; gap: 10px; padding: 18px; color: #333; }
+  .yelp-card .fallback a { color: #b4191e; font-weight: 600; }
+  .rev-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+
+  /* ---------- Social ---------- */
+  .profile { display: grid; gap: 20px; align-items: center; padding: clamp(22px, 3.6vw, 32px); border-radius: var(--r); border: 1px solid var(--line); background: var(--card); }
+  @media (min-width: 860px) { .profile { grid-template-columns: auto 1fr auto; } }
+  .avatar { width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center; background: #0b0b0d; border: 2px solid var(--red); color: var(--ink); }
+  .avatar .logo { --logo-h: 18px; }
+  .profile h3 { margin: 0; font-family: var(--display); font-size: 1.35rem; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .profile ul { list-style: none; margin: 8px 0 0; padding: 0; color: var(--ink-2); display: grid; gap: 4px; }
+  .profile li { display: flex; gap: 8px; align-items: center; }
+  .profile li svg { width: 15px; height: 15px; color: var(--red-2); }
+  .feed { display: grid; gap: 14px; margin-top: 36px; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 860px) { .feed { grid-template-columns: repeat(3, 1fr); } }
+  .feed a { position: relative; display: block; aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #000; }
+  .feed img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .4s; filter: saturate(.9); }
+  .feed a:hover img { transform: scale(1.05); filter: saturate(1.05); }
+  .feed a::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(9,9,11,.7)); opacity: 0; transition: opacity .3s; }
+  .feed a:hover::after { opacity: 1; }
+
+  /* ---------- Contact: the estimator ---------- */
+  .contact { display: grid; gap: 28px; }
+  @media (min-width: 1000px) { .contact { grid-template-columns: .85fr 1.15fr; gap: 40px; align-items: start; } }
+  .info { display: grid; gap: 12px; margin-top: 28px; }
+  .info-card { display: grid; grid-template-columns: 44px 1fr; gap: 2px 16px; align-items: center; padding: 16px 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); color: var(--ink); text-decoration: none; transition: border-color .2s; }
+  a.info-card:hover { border-color: var(--red-edge); }
+  .info-card .ic { grid-row: span 2; width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; background: var(--red-soft); color: var(--red-2); }
+  .info-card .ic svg { width: 20px; height: 20px; }
+  .info-card .mono { color: var(--muted); font-size: .76rem; }
+  .info-card b { font-family: var(--display); font-size: 1.1rem; font-weight: 600; }
+  .privacy { display: flex; gap: 12px; margin-top: 12px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); color: var(--ink-2); font-size: .9rem; }
+  .privacy svg { width: 18px; height: 18px; color: var(--red-2); flex: none; margin-top: 2px; }
+  .estimator { padding: clamp(22px, 3.6vw, 36px); border-radius: var(--r); border: 1px solid var(--line-2); background: var(--card); }
+  .estimator h3 { margin: 0 0 22px; font-family: var(--display); font-size: 1.15rem; text-transform: uppercase; letter-spacing: .02em; }
+  form { display: grid; gap: 18px; }
+  .two { display: grid; gap: 18px; }
+  @media (min-width: 600px) { .two { grid-template-columns: 1fr 1fr; } }
+  label, .fieldset-label { display: grid; gap: 8px; font-size: .88rem; font-weight: 500; color: var(--ink-2); }
+  label abbr { color: var(--red-2); text-decoration: none; }
+  input:not([type="range"]):not([type="file"]), select, textarea { width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line-2); background: #0c0c0f; color: var(--ink); font-size: 1rem; transition: border-color .2s, box-shadow .2s; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b4b4bb' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; padding-right: 40px; }
+  textarea { min-height: 110px; resize: vertical; }
+  input:not([type="range"]):focus, select:focus, textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(207,52,56,.22); }
+  input::placeholder, textarea::placeholder { color: #6f6f78; }
+  .size-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .size-out { padding: 4px 10px; border-radius: 6px; border: 1px solid var(--red-edge); color: var(--red-2); font-family: var(--mono); font-size: .8rem; font-variant-numeric: tabular-nums; }
+  input[type="range"].size { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; cursor: pointer; }
+  input[type="range"].size::-webkit-slider-runnable-track { height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--red) var(--fill, 20%), #2a2a30 var(--fill, 20%)); }
+  input[type="range"].size::-moz-range-track { height: 4px; border-radius: 4px; background: #2a2a30; }
+  input[type="range"].size::-moz-range-progress { height: 4px; border-radius: 4px; background: var(--red); }
+  input[type="range"].size::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; margin-top: -8px; border-radius: 50%; background: #fff; border: 4px solid var(--red); }
+  input[type="range"].size::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 4px solid var(--red); }
+  input[type="range"].size:focus-visible { outline: 2px solid var(--red-2); outline-offset: 4px; border-radius: 4px; }
+  .drop { position: relative; display: grid; place-items: center; gap: 6px; text-align: center; padding: 26px 16px; border-radius: 12px; border: 1px dashed var(--line-2); background: #0c0c0f; color: var(--ink-2); font-size: .92rem; transition: border-color .2s, background .2s; }
+  .drop.is-over { border-color: var(--red); background: rgba(207,52,56,.06); }
+  .drop svg { width: 22px; height: 22px; color: var(--red-2); }
+  .drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .drop u { color: var(--ink); }
+  .drop .files { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+  .form-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; }
+  .form-foot small { color: var(--muted); }
+  [data-form-status] { margin: 0; min-height: 1.4em; color: var(--red-2); font-size: .92rem; }
+
+  /* ---------- Footer ---------- */
+  footer { margin-top: var(--section); border-top: 1px solid var(--line); background: var(--bg-2); }
+  .foot { display: grid; gap: 40px; padding: 64px 0 40px; }
+  @media (min-width: 900px) { .foot { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
+  .foot .logo { --logo-h: 40px; color: var(--ink); }
+  .foot p { color: var(--ink-2); max-width: 30em; }
+  .foot h4 { margin: 0 0 14px; color: var(--red-2); }
+  .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; color: var(--ink-2); font-size: .94rem; }
+  .foot ul a { color: var(--ink-2); text-decoration: none; }
+  .foot ul a:hover { color: var(--ink); }
+  .foot .hours li { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: .8rem; }
+  .socials { display: flex; gap: 8px; margin-top: 18px; }
+  .socials a { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--line-2); color: var(--ink-2); transition: border-color .2s, color .2s; }
+  .socials a:hover { border-color: var(--red); color: var(--ink); }
+  .socials svg { width: 18px; height: 18px; }
+  .legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 22px 0 32px; border-top: 1px solid var(--line); color: var(--muted); }
+  .to-top { position: fixed; right: 18px; bottom: 18px; z-index: 50; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; border: 1px solid var(--line-2); background: rgba(15,15,18,.85); color: var(--ink); opacity: 0; pointer-events: none; transition: opacity .3s, border-color .2s; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .to-top.is-on { opacity: 1; pointer-events: auto; }
+  .to-top:hover { border-color: var(--red); }
+  .to-top svg { width: 18px; height: 18px; }
+
+  @media (prefers-reduced-motion: reduce) { .thumb i { animation: none !important; width: 100% !important; } .tex-view img { transform: none !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8.5 8 9 4.6-.5 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.4l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></symbol>
+  <symbol id="i-knock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8c2-2 4 0 6-1s3-3 5-2 3 2 5 1M4 14c2-1 3 1 5 0s3-2 5-1 4 2 6 0M4 19c3 0 4-1 7-1s5 1 9 0"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="1.3"/><circle cx="12" cy="6" r="1.3"/><circle cx="18" cy="6" r="1.3"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="6" cy="18" r="1.3"/><circle cx="12" cy="18" r="1.3"/><circle cx="18" cy="18" r="1.3"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="3"/><circle cx="14" cy="7" r="3.5"/><circle cx="10" cy="14" r="3.5"/><circle cx="17" cy="14" r="3"/></symbol>
+  <symbol id="i-flat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h10"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3z"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M6 12V5a2 2 0 0 1 3.4-1.4L10 4"/></symbol>
+  <symbol id="i-patch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><rect x="8" y="8" width="8" height="8" rx="1" stroke-dasharray="2 2"/></symbol>
+  <symbol id="i-roller" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="16" height="6" rx="2"/><path d="M19 6h2v5h-9v3"/><rect x="10" y="14" width="4" height="7" rx="1"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2A21 21 0 0 0 14.6 2C12.3 2 10.7 3.4 10.7 6v2.5H8V12h2.7v10H14V12h2.7l.4-3.5z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a href="#main" aria-label="Simply The Best Drywall, home"><span class="logo" role="img" aria-label="Simply The Best Drywall"></span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#textures">Textures</a></li>
+        <li><a href="#repairs">Repairs</a></li>
+        <li><a href="#work">Before &amp; After</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-line quote" href="tel:+19162891026"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>Request a quote</span><b class="sr-only">Call Ray</b></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<nav class="sheet" id="sheet" aria-label="Mobile">
+  <a href="#textures">Textures</a><a href="#repairs">Repairs</a><a href="#work">Before &amp; After</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+</nav>
+
+<main id="main">
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-bg" aria-hidden="true">
+      <img id="hero-still" src="../../assets/img/hero-wall.webp" srcset="../../assets/img/hero-wall.webp 960w, ../../assets/img/hero-wall@2x.webp 1920w" sizes="100vw" alt="" fetchpriority="high">
+      <video id="hero-video" muted loop playsinline preload="none" data-src="../../assets/video/hero-wall.mp4"></video>
+    </div>
+
+    <div class="wrap hero-grid">
+      <div>
+        <div class="chips">
+          <span class="chip mono"><svg aria-hidden="true"><use href="#i-user"/></svg>The owner does the work</span>
+          <span class="chip mono"><svg aria-hidden="true"><use href="#i-pin"/></svg>Elk Grove · Sacramento area</span>
+        </div>
+        <span class="label mono">Cosmetic repair · texture matching</span>
+        <div class="h1-wrap">
+          <h1><span>Patched.</span><span class="red">Perfected.</span></h1>
+          <div class="seam" id="skim-hero" data-skim data-skim-delay="900" data-skim-seed="17" data-skim-knife="../../assets/img/knife.webp"></div>
+        </div>
+        <p class="hero-lede">We specialize in cosmetic repairs and matching existing textures. The whole idea is to not be reminded of the crack or hole every time you look at where it was.</p>
+        <ul class="stats">
+          <li><b data-count="4.7" data-dec="1">4.7<small>★</small></b><span class="mono">Yelp rating</span></li>
+          <li><b data-count="48">48</b><span class="mono">Yelp reviews</span></li>
+          <li><b data-count="16">16<small>yrs</small></b><span class="mono">Union Local 487</span></li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="#contact" data-magnetic>Request a repair <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="#work">See the work</a>
+        </div>
+        <p class="proof-line mono"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>In drywall since 1996</p>
+      </div>
+
+      <div class="showcase" id="showcase">
+        <div class="stage">
+          <div class="slides" id="slides" aria-live="polite">
+            <div class="slide is-on" role="tabpanel" id="slide-0" aria-labelledby="thumb-0">
+              <div class="compare" data-compare>
+                <img src="../../assets/img/ceiling-after.webp" srcset="../../assets/img/ceiling-after.webp 450w, ../../assets/img/ceiling-after@2x.webp 900w" sizes="(min-width: 1040px) 540px, 92vw" alt="After: the kitchen ceiling patched and textured, no opening visible" width="450" height="800">
+                <div class="compare-before"><img src="../../assets/img/ceiling-before.webp" srcset="../../assets/img/ceiling-before.webp 450w, ../../assets/img/ceiling-before@2x.webp 900w" sizes="(min-width: 1040px) 540px, 92vw" alt="Before: a large rectangular opening cut into the kitchen ceiling" width="450" height="800"></div>
+                <input type="range" min="0" max="100" value="50" aria-label="Drag to compare the kitchen ceiling before and after">
+                <span class="compare-handle"></span>
+                <span class="compare-tag compare-tag--before tag mono">Before</span><span class="compare-tag compare-tag--after tag mono">After</span>
+              </div>
+              <div class="slide-meta"><span class="tag mono">Kitchen ceiling</span><span class="tag mono">Drag</span></div>
+            </div>
+            <div class="slide" role="tabpanel" id="slide-1" aria-labelledby="thumb-1">
+              <div class="compare" data-compare>
+                <img src="../../assets/img/stairs-after.webp" srcset="../../assets/img/stairs-after.webp 450w, ../../assets/img/stairs-after@2x.webp 900w" sizes="(min-width: 1040px) 540px, 92vw" alt="After: a smooth, finished stairwell wall" loading="lazy" width="450" height="800">
+                <div class="compare-before"><img src="../../assets/img/stairs-before.webp" srcset="../../assets/img/stairs-before.webp 450w, ../../assets/img/stairs-before@2x.webp 900w" sizes="(min-width: 1040px) 540px, 92vw" alt="Before: the stairwell wall masked in plastic mid-repair" loading="lazy" width="450" height="800"></div>
+                <input type="range" min="0" max="100" value="50" aria-label="Drag to compare the stairwell before and after">
+                <span class="compare-handle"></span>
+                <span class="compare-tag compare-tag--before tag mono">Before</span><span class="compare-tag compare-tag--after tag mono">After</span>
+              </div>
+              <div class="slide-meta"><span class="tag mono">Stairwell wall</span><span class="tag mono">Drag</span></div>
+            </div>
+            <div class="slide" role="tabpanel" id="slide-2" aria-labelledby="thumb-2">
+              <video data-loop src="../../assets/video/popcorn-loop.mp4" poster="../../assets/video/popcorn-poster.jpg" muted loop playsinline preload="none" aria-label="Ray scraping a popcorn ceiling"></video>
+              <div class="slide-meta"><span class="tag mono">Popcorn removal</span><span class="tag mono">Ray, on the job</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="thumbs" role="tablist" aria-label="Featured jobs">
+          <button class="thumb" role="tab" id="thumb-0" aria-controls="slide-0" aria-selected="true" aria-label="Kitchen ceiling"><img src="../../assets/img/ceiling-after.webp" alt="" width="450" height="800"><i></i></button>
+          <button class="thumb" role="tab" id="thumb-1" aria-controls="slide-1" aria-selected="false" aria-label="Stairwell wall" tabindex="-1"><img src="../../assets/img/stairs-after.webp" alt="" width="450" height="800" loading="lazy"><i></i></button>
+          <button class="thumb" role="tab" id="thumb-2" aria-controls="slide-2" aria-selected="false" aria-label="Popcorn removal video" tabindex="-1"><img src="../../assets/video/popcorn-poster.jpg" alt="" width="540" height="958" loading="lazy"><i></i></button>
+        </div>
+        <p class="card-caption mono"><span>Real jobs · Ray's phone</span><span>Unedited</span></p>
+      </div>
+    </div>
+
+    <div class="trust">
+      <div class="wrap mono">
+        <span><svg aria-hidden="true"><use href="#i-shield"/></svg>Union-trained · Local 487</span>
+        <span><svg aria-hidden="true"><use href="#i-user"/></svg>Family owned &amp; operated</span>
+        <span><svg aria-hidden="true"><use href="#i-card"/></svg>Cards · Zelle · Venmo</span>
+        <span class="scroll">Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="textures">
+    <div class="wrap">
+      <div class="center">
+        <span class="pill mono">Texture matching</span>
+        <h2>Which texture is <em>on your wall?</em></h2>
+        <p class="lede">A patch only disappears when the texture around it matches. Ray matches what's already there, so the repair blends into the rest of the room.</p>
+      </div>
+      <div class="tex">
+        <div class="tex-list" role="tablist" aria-label="Wall and ceiling textures">
+          <button class="tex-opt" role="tab" aria-selected="true" data-tex="0"><span class="ic"><svg aria-hidden="true"><use href="#i-knock"/></svg></span><b>Knockdown</b><span class="mono">Flattened splatter</span><p>Common on walls and ceilings in newer homes. Sprayed, then lightly flattened with a knife.</p></button>
+          <button class="tex-opt" role="tab" aria-selected="false" data-tex="1" tabindex="-1"><span class="ic"><svg aria-hidden="true"><use href="#i-dots"/></svg></span><b>Orange peel</b><span class="mono">Fine, even bumps</span><p>A subtle stipple, like the skin of an orange. Easy to spot when a patch doesn't match.</p></button>
+          <button class="tex-opt" role="tab" aria-selected="false" data-tex="2" tabindex="-1"><span class="ic"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span><b>Popcorn</b><span class="mono">Acoustic ceiling texture</span><p>The lumpy ceiling finish of older homes. Ray scrapes it off and resprays a clean, updated texture.</p></button>
+          <button class="tex-opt" role="tab" aria-selected="false" data-tex="3" tabindex="-1"><span class="ic"><svg aria-hidden="true"><use href="#i-flat"/></svg></span><b>Smooth</b><span class="mono">No texture at all</span><p>The least forgiving finish. Every patch has to be feathered flat to vanish under light.</p></button>
+        </div>
+        <div class="tex-view" role="tabpanel" aria-live="polite">
+          <img class="is-on" src="../../assets/img/texture-macro.webp" srcset="../../assets/img/texture-macro.webp 800w, ../../assets/img/texture-macro@2x.webp 1600w" sizes="(min-width: 960px) 680px, 92vw" alt="Close-up example of knockdown texture" loading="lazy">
+          <img src="../../assets/img/tex-orange-peel.webp" alt="Close-up example of orange peel texture" loading="lazy">
+          <img src="../../assets/img/tex-popcorn.webp" alt="Close-up example of popcorn ceiling texture" loading="lazy">
+          <img src="../../assets/img/tex-smooth.webp" alt="Close-up example of a smooth wall finish" loading="lazy">
+          <span class="tag mono">Example texture</span>
+          <div class="note"><b id="tex-title">Knockdown</b><p id="tex-copy">Matched to the pattern, size and spacing already on your ceiling.</p></div>
+        </div>
+      </div>
+      <div class="callout">
+        <div>
+          <span class="pill mono">Not sure?</span>
+          <h3>Text Ray a photo of the damage</h3>
+          <p>He'll tell you which texture you have and give you a ballpark. Clean work, too: Ray tries not to sand, and the owner of the company is who does the work.</p>
+        </div>
+        <a class="btn btn-red" href="sms:+19162891026" data-magnetic>Text a photo <svg aria-hidden="true"><use href="#i-camera"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section repairs" id="repairs">
+    <div class="wrap">
+      <div class="center">
+        <span class="pill mono">Repairs &amp; refinishing</span>
+        <h2>From hole <em>to gone.</em></h2>
+        <p class="lede">We also focus on being attentive and on our customer service. With over 30 years of experience, we are proud to consider ourselves professionals.</p>
+      </div>
+      <div class="systems">
+        <article class="system">
+          <span class="pill mono">Most requested</span>
+          <h3>Cosmetic repair &amp; texture match</h3>
+          <span class="sub mono">Cracks · holes · old patches</span>
+          <p>The thing Ray is known for. Damage is patched, finished and blended into the texture around it, so you're not reminded of it every time you look at the wall.</p>
+          <hr>
+          <span class="mono label">What you get</span>
+          <ul>
+            <li>The owner does the work himself</li>
+            <li>Texture matched to your existing finish</li>
+            <li>Clean jobs: Ray tries not to sand</li>
+          </ul>
+        </article>
+        <article class="system">
+          <span class="pill mono">Ceilings</span>
+          <h3>Popcorn removal &amp; respray</h3>
+          <span class="sub mono">Scrape · prep · respray</span>
+          <p>Dated popcorn ceilings scraped off, prepped and resprayed. Rooms are masked in plastic first, the way you see in Ray's own job photos.</p>
+          <hr>
+          <span class="mono label">What you get</span>
+          <ul>
+            <li>Floors and furniture protected first</li>
+            <li>A clean, updated ceiling texture</li>
+            <li>Lights and vents worked around carefully</li>
+          </ul>
+        </article>
+      </div>
+      <div class="tiles">
+        <div class="tile"><svg aria-hidden="true"><use href="#i-drop"/></svg><b>Water damage</b><p>Damaged drywall cut out, replaced and blended back in.</p></div>
+        <div class="tile"><svg aria-hidden="true"><use href="#i-bath"/></svg><b>Bathroom retexture</b><p>Imperfect smooth texture, redone right.</p></div>
+        <div class="tile"><svg aria-hidden="true"><use href="#i-patch"/></svg><b>Patchwork</b><p>Doorknob holes to cut-outs, finished to disappear.</p></div>
+        <div class="tile"><svg aria-hidden="true"><use href="#i-roller"/></svg><b>Wall texturing</b><p>New texture and wall finish repair, start to finish.</p></div>
+      </div>
+      <p class="footnote"><span>Accepts cards, Zelle &amp; Venmo</span><span>ASL proficient</span><span>Elk Grove &amp; the Sacramento area</span></p>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="work-head">
+        <div>
+          <span class="label mono">Before &amp; after · real jobs</span>
+          <h2>Nothing <em>to see.</em></h2>
+          <p class="lede" style="margin-top:12px">Every photo is from Ray's phone, unretouched. Drag the line on any repair to find where the work was.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter jobs">
+          <button type="button" aria-pressed="true" data-filter="all">All jobs</button>
+          <button type="button" aria-pressed="false" data-filter="ceilings">Ceilings</button>
+          <button type="button" aria-pressed="false" data-filter="walls">Walls</button>
+          <button type="button" aria-pressed="false" data-filter="popcorn">Popcorn</button>
+        </div>
+      </div>
+      <div class="grid" id="jobs">
+        <article class="job" data-kind="ceilings">
+          <div class="job-media">
+            <div class="compare" data-compare>
+              <img src="../../assets/img/ceiling-after.webp" srcset="../../assets/img/ceiling-after.webp 450w, ../../assets/img/ceiling-after@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="After: kitchen ceiling with no visible opening" loading="lazy" width="450" height="800">
+              <div class="compare-before"><img src="../../assets/img/ceiling-before.webp" srcset="../../assets/img/ceiling-before.webp 450w, ../../assets/img/ceiling-before@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="Before: a rectangular opening in the kitchen ceiling" loading="lazy" width="450" height="800"></div>
+              <input type="range" min="0" max="100" value="50" aria-label="Compare the kitchen ceiling before and after">
+              <span class="compare-handle"></span>
+            </div>
+            <span class="kind tag mono">Ceilings</span>
+          </div>
+          <div class="job-body">
+            <div class="job-meta mono"><span><svg aria-hidden="true"><use href="#i-camera"/></svg>Ray's phone</span></div>
+            <h3>Kitchen ceiling opening</h3>
+            <p>A large cut-out closed, finished and textured to match the rest of the ceiling.</p>
+            <div class="specs"><span>Patch &amp; finish</span><span>Knockdown match</span><span>Around recessed lights</span></div>
+          </div>
+        </article>
+        <article class="job" data-kind="ceilings">
+          <div class="job-media">
+            <div class="compare" data-compare>
+              <img src="../../assets/img/skim-after.webp" srcset="../../assets/img/skim-after.webp 450w, ../../assets/img/skim-after@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="After: ceiling with an even, matched texture" loading="lazy" width="450" height="800">
+              <div class="compare-before"><img src="../../assets/img/skim-before.webp" srcset="../../assets/img/skim-before.webp 450w, ../../assets/img/skim-before@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="Before: ceiling skimmed with smooth compound, texture not yet sprayed" loading="lazy" width="450" height="800"></div>
+              <input type="range" min="0" max="100" value="50" aria-label="Compare the ceiling respray before and after">
+              <span class="compare-handle"></span>
+            </div>
+            <span class="kind tag mono">Ceilings</span>
+          </div>
+          <div class="job-body">
+            <div class="job-meta mono"><span><svg aria-hidden="true"><use href="#i-camera"/></svg>Ray's phone</span></div>
+            <h3>Ceiling respray</h3>
+            <p>Skimmed smooth, then sprayed so the new texture matches the rest of the room.</p>
+            <div class="specs"><span>Skim coat</span><span>Texture respray</span><span>Room masked</span></div>
+          </div>
+        </article>
+        <article class="job" data-kind="walls">
+          <div class="job-media">
+            <div class="compare" data-compare>
+              <img src="../../assets/img/stairs-after.webp" srcset="../../assets/img/stairs-after.webp 450w, ../../assets/img/stairs-after@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="After: smooth finished stairwell wall" loading="lazy" width="450" height="800">
+              <div class="compare-before"><img src="../../assets/img/stairs-before.webp" srcset="../../assets/img/stairs-before.webp 450w, ../../assets/img/stairs-before@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="Before: stairwell wall masked in plastic" loading="lazy" width="450" height="800"></div>
+              <input type="range" min="0" max="100" value="50" aria-label="Compare the stairwell before and after">
+              <span class="compare-handle"></span>
+            </div>
+            <span class="kind tag mono">Walls</span>
+          </div>
+          <div class="job-body">
+            <div class="job-meta mono"><span><svg aria-hidden="true"><use href="#i-camera"/></svg>Ray's phone</span></div>
+            <h3>Stairwell wall</h3>
+            <p>Repaired and finished beside brand-new wood floors, with the floors protected throughout.</p>
+            <div class="specs"><span>Wall repair</span><span>Floor protection</span><span>Finish coat</span></div>
+          </div>
+        </article>
+        <article class="job" data-kind="walls">
+          <div class="job-media">
+            <div class="compare" data-compare>
+              <img src="../../assets/img/stairs-after.webp" srcset="../../assets/img/stairs-after.webp 450w, ../../assets/img/stairs-after@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="After: finished stairwell" loading="lazy" width="450" height="800">
+              <div class="compare-before"><img src="../../assets/img/stairs-prep.webp" srcset="../../assets/img/stairs-prep.webp 450w, ../../assets/img/stairs-prep@2x.webp 900w" sizes="(min-width: 1100px) 400px, 92vw" alt="Before: stairwell masked, ladder in place" loading="lazy" width="450" height="800"></div>
+              <input type="range" min="0" max="100" value="50" aria-label="Compare the stairwell prep and finish">
+              <span class="compare-handle"></span>
+            </div>
+            <span class="kind tag mono">Walls</span>
+          </div>
+          <div class="job-body">
+            <div class="job-meta mono"><span><svg aria-hidden="true"><use href="#i-camera"/></svg>Ray's phone</span></div>
+            <h3>Stairwell, protected first</h3>
+            <p>Rails and floors masked before any mud goes on. The prep is part of the finish.</p>
+            <div class="specs"><span>Full masking</span><span>Ladder work</span><span>Clean site</span></div>
+          </div>
+        </article>
+        <article class="job" data-kind="popcorn">
+          <div class="job-media">
+            <video data-loop src="../../assets/video/popcorn-loop.mp4" poster="../../assets/video/popcorn-poster.jpg" muted loop playsinline preload="none" aria-label="Ray scraping a popcorn ceiling"></video>
+            <span class="kind tag mono">Popcorn</span>
+          </div>
+          <div class="job-body">
+            <div class="job-meta mono"><span><svg aria-hidden="true"><use href="#i-camera"/></svg>Ray's phone</span></div>
+            <h3>Popcorn ceiling removal</h3>
+            <p>Ray on the job, scraping a popcorn ceiling before the respray.</p>
+            <div class="specs"><span>Scrape</span><span>Prep</span><span>Respray</span></div>
+          </div>
+        </article>
+        <article class="job job--cta" data-kind="all">
+          <span class="pill mono">Your wall next</span>
+          <h3>Got a crack or hole?</h3>
+          <p>Text Ray a photo. He'll tell you what it'll take, and give you a ballpark.</p>
+          <a class="btn btn-red" href="sms:+19162891026">Text a photo <svg aria-hidden="true"><use href="#i-camera"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="rev-head">
+        <div>
+          <span class="label mono">Customer reviews · Yelp</span>
+          <h2>What customers <em>say.</em></h2>
+        </div>
+        <a class="score" href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove" target="_blank" rel="noopener">
+          <b>4.7</b>
+          <span><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><small>48 reviews on Yelp</small></span>
+        </a>
+      </div>
+      <div class="yelp-row">
+        <div class="yelp-card"><span class="yelp-review" data-review-id="IaQ6gJBuAxOGXqJGAVFz_A" data-hostname="www.yelp.com"><span class="fallback">Read a customer's <a href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove?hrid=IaQ6gJBuAxOGXqJGAVFz_A" target="_blank" rel="noopener nofollow">review of Simply The Best Drywall</a> on <a href="https://www.yelp.com" target="_blank" rel="noopener nofollow">Yelp</a></span></span></div>
+        <div class="yelp-card"><span class="yelp-review" data-review-id="Zt_FUZGCHN12JeUBE23g7w" data-hostname="www.yelp.com"><span class="fallback">Read a customer's <a href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove?hrid=Zt_FUZGCHN12JeUBE23g7w" target="_blank" rel="noopener nofollow">review of Simply The Best Drywall</a> on <a href="https://www.yelp.com" target="_blank" rel="noopener nofollow">Yelp</a></span></span></div>
+        <div class="yelp-card"><span class="yelp-review" data-review-id="eg8hL7OUTOhpnbgmE2UXWA" data-hostname="www.yelp.com"><span class="fallback">Read a customer's <a href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove?hrid=eg8hL7OUTOhpnbgmE2UXWA" target="_blank" rel="noopener nofollow">review of Simply The Best Drywall</a> on <a href="https://www.yelp.com" target="_blank" rel="noopener nofollow">Yelp</a></span></span></div>
+      </div>
+      <div class="rev-actions">
+        <a class="btn btn-line" href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-star"/></svg>Read all 48 on Yelp</a>
+        <a class="btn btn-line" href="http://www.homeadvisor.com/rated.SimplyTheBest.14765959.html" target="_blank" rel="noopener">Rated on HomeAdvisor</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="social">
+    <div class="wrap">
+      <div class="profile">
+        <span class="avatar"><span class="logo" role="img" aria-label="Simply The Best Drywall"></span></span>
+        <div>
+          <h3>@simplythebestdrywall <span class="pill mono">Owner-operated</span></h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-hand"/></svg>Cosmetic repairs &amp; texture matching</li>
+            <li><svg aria-hidden="true"><use href="#i-pin"/></svg>Elk Grove &amp; the Sacramento area</li>
+            <li><svg aria-hidden="true"><use href="#i-phone"/></svg>(916) 289-1026</li>
+          </ul>
+        </div>
+        <a class="btn btn-line" href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Follow on Instagram</a>
+      </div>
+      <div class="center" style="margin-top:56px">
+        <span class="label mono">Recent work</span>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem)">Snapshots of <em>the craft</em></h2>
+      </div>
+      <div class="feed">
+        <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Finished kitchen ceiling, more on Instagram"><img src="../../assets/img/ceiling-after.webp" alt="" loading="lazy" width="450" height="800"></a>
+        <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Stairwell wall, more on Instagram"><img src="../../assets/img/stairs-after.webp" alt="" loading="lazy" width="450" height="800"></a>
+        <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Popcorn ceiling removal, more on Instagram"><img src="../../assets/video/popcorn-poster.jpg" alt="" loading="lazy" width="540" height="958"></a>
+        <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Ceiling texture, more on Instagram"><img src="../../assets/img/skim-after.webp" alt="" loading="lazy" width="450" height="800"></a>
+        <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Stairwell prep, more on Instagram"><img src="../../assets/img/stairs-prep.webp" alt="" loading="lazy" width="450" height="800"></a>
+        <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Ceiling repair in progress, more on Instagram"><img src="../../assets/img/ceiling-before.webp" alt="" loading="lazy" width="450" height="800"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap contact">
+      <div>
+        <span class="label mono">Request a repair</span>
+        <h2>Contact <em>Ray.</em></h2>
+        <p class="lede">Tell Ray what needs fixing and he'll get back to you with a ballpark or estimate. We are honest, trustworthy and will treat you like the valued customer that you are.</p>
+        <div class="info">
+          <a class="info-card" href="tel:+19162891026"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span class="mono">Call or text</span><b>(916) 289-1026</b></a>
+          <div class="info-card"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span class="mono">Service area</span><b>Elk Grove &amp; the Sacramento area</b></div>
+          <div class="info-card"><span class="ic"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><span class="mono">Hours</span><b>Mon–Fri 8–9 · Sat–Sun 10–9</b></div>
+          <div class="info-card"><span class="ic"><svg aria-hidden="true"><use href="#i-card"/></svg></span><span class="mono">Payment</span><b>Cards, Zelle &amp; Venmo</b></div>
+        </div>
+        <p class="privacy"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>Your details go to Ray and are used only to answer your request.</span></p>
+      </div>
+      <div class="estimator">
+        <h3>Repair estimator</h3>
+        <form data-demo-form>
+          <div class="two">
+            <label><span>Your name <abbr title="required">*</abbr></span><input name="name" autocomplete="name" required placeholder="e.g. Jordan Smith"></label>
+            <label><span>Phone <abbr title="required">*</abbr></span><input type="tel" name="phone" autocomplete="tel" required placeholder="(916) 555-0123"></label>
+          </div>
+          <div class="two">
+            <label><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com"></label>
+            <label><span>Type of repair</span>
+              <select name="type">
+                <option>Crack or hole</option>
+                <option>Water damage</option>
+                <option>Popcorn ceiling removal</option>
+                <option>Bathroom retexture</option>
+                <option>Texture or wall finish</option>
+                <option>Something else</option>
+              </select>
+            </label>
+          </div>
+          <label><span>Texture around the damage</span>
+            <select name="texture">
+              <option>Not sure</option>
+              <option>Knockdown</option>
+              <option>Orange peel</option>
+              <option>Popcorn</option>
+              <option>Smooth</option>
+            </select>
+          </label>
+          <div class="fieldset-label">
+            <div class="size-row"><label for="size" style="display:inline">Roughly how big is it?</label><output class="size-out" id="size-out" for="size">About 6 in</output></div>
+            <input class="size" type="range" id="size" name="size" min="1" max="10" value="3" step="1">
+          </div>
+          <label><span>What happened? <abbr title="required">*</abbr></span><textarea name="details" required placeholder="A doorknob hole in the hallway, a crack over the bedroom door, a water stain on the ceiling…"></textarea></label>
+          <div class="fieldset-label">
+            <span>Photos of the damage <small style="color:var(--muted)">(optional)</small></span>
+            <div class="drop" id="drop">
+              <svg aria-hidden="true"><use href="#i-upload"/></svg>
+              <span>Drag photos here or <u>browse</u></span>
+              <span class="files" id="files">JPG, PNG or HEIC</span>
+              <input type="file" name="photos" accept="image/*" multiple aria-label="Add photos of the damage">
+            </div>
+          </div>
+          <div class="form-foot">
+            <small>* Required</small>
+            <button class="btn btn-red" type="submit" data-magnetic>Send to Ray <svg aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+          <p data-form-status role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <span class="logo" role="img" aria-label="Simply The Best Drywall"></span>
+      <p>Owner-operated drywall repair and texture matching for Elk Grove and the Sacramento area. Family owned and operated, in drywall since 1996.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/simplythebestdrywall/" target="_blank" rel="noopener" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+        <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove" target="_blank" rel="noopener" aria-label="Yelp"><svg aria-hidden="true"><use href="#i-star"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="mono">Navigate</h4>
+      <ul><li><a href="#textures">// Textures</a></li><li><a href="#repairs">// Repairs</a></li><li><a href="#work">// Before &amp; after</a></li><li><a href="#reviews">// Reviews</a></li><li><a href="#contact">// Contact</a></li></ul>
+    </div>
+    <div>
+      <h4 class="mono">Hours</h4>
+      <ul class="hours"><li><span>Mon–Fri</span><span>8am–9pm</span></li><li><span>Sat–Sun</span><span>10am–9pm</span></li></ul>
+    </div>
+    <div>
+      <h4 class="mono">Contact</h4>
+      <ul><li><a href="tel:+19162891026">(916) 289-1026</a></li><li>Elk Grove, CA</li><li>Cards, Zelle &amp; Venmo</li></ul>
+    </div>
+  </div>
+  <div class="wrap legal"><span>© 2026 Simply The Best Drywall · Ray Abreu</span><span>Painters &amp; Tapers Union Local 487 trained</span></div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+
+<script src="../../assets/stb.js?v=3"></script>
+<script>
+{
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer: fine)').matches;
+
+  /* Header frost, reading progress, back-to-top. */
+  const header = document.getElementById('top');
+  const progress = document.getElementById('progress');
+  const toTop = document.getElementById('to-top');
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.setProperty('--p', max > 0 ? scrollY / max : 0);
+    header.classList.toggle('is-stuck', scrollY > 20);
+    toTop.classList.toggle('is-on', scrollY > innerHeight * 1.2);
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' }));
+
+  /* Mobile menu. */
+  const menuBtn = document.querySelector('.menu-btn');
+  const sheet = document.getElementById('sheet');
+  const setMenu = open => { sheet.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', open); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); };
+  menuBtn.addEventListener('click', () => setMenu(!sheet.classList.contains('is-open')));
+  sheet.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* Hero backdrop video: only on capable screens, only if motion is welcome. */
+  const vid = document.getElementById('hero-video');
+  if (!still && innerWidth >= 760 && vid.dataset.src) {
+    vid.src = vid.dataset.src;
+    vid.addEventListener('canplay', () => { vid.classList.add('is-ready'); vid.play().catch(() => {}); }, { once: true });
+    vid.addEventListener('error', () => vid.remove(), { once: true });
+    vid.load();
+  }
+
+  /* Count-up stats. */
+  const counters = document.querySelectorAll('[data-count]');
+  const runCount = el => {
+    const end = Number(el.dataset.count), dec = Number(el.dataset.dec || 0);
+    const small = el.querySelector('small'); const tail = small ? small.outerHTML : '';
+    if (still) return;
+    const t0 = performance.now(), dur = 1400;
+    const step = t => {
+      const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.innerHTML = (end * e).toFixed(dec) + tail;
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const cio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); } }), { threshold: .6 });
+  counters.forEach(c => cio.observe(c));
+
+  /* Showcase: thumbnails switch slides, auto-advancing until the visitor takes over. */
+  const showcase = document.getElementById('showcase');
+  const thumbs = [...showcase.querySelectorAll('.thumb')];
+  const slides = [...showcase.querySelectorAll('.slide')];
+  let current = 0, timer = 0, userTook = false;
+  const DWELL = 7000;
+  showcase.style.setProperty('--dwell', DWELL + 'ms');
+  const go = (i, focus) => {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, n) => s.classList.toggle('is-on', n === current));
+    thumbs.forEach((t, n) => { t.setAttribute('aria-selected', n === current); t.tabIndex = n === current ? 0 : -1; });
+    const v = slides[current].querySelector('video');
+    showcase.querySelectorAll('.slide video').forEach(x => { if (x !== v) x.pause(); });
+    if (v && !still) v.play().catch(() => {});
+    if (focus) thumbs[current].focus();
+    schedule();
+  };
+  const schedule = () => { clearTimeout(timer); if (!userTook && !still) timer = setTimeout(() => go(current + 1), DWELL); };
+  thumbs.forEach((t, n) => {
+    t.addEventListener('click', () => { userTook = true; showcase.classList.add('is-paused'); go(n); });
+    t.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { userTook = true; go(current + (e.key === 'ArrowRight' ? 1 : -1), true); e.preventDefault(); }
+    });
+  });
+  showcase.addEventListener('pointerenter', () => { clearTimeout(timer); showcase.classList.add('is-paused'); });
+  showcase.addEventListener('pointerleave', () => { if (!userTook) { showcase.classList.remove('is-paused'); schedule(); } });
+  showcase.addEventListener('input', () => { userTook = true; clearTimeout(timer); showcase.classList.add('is-paused'); });
+  schedule();
+
+  /* Texture guide. */
+  const tex = [
+    ['Knockdown', 'Matched to the pattern, size and spacing already on your ceiling.'],
+    ['Orange peel', 'The stipple is matched so the patch reads as the same wall.'],
+    ['Popcorn', 'Scraped off and resprayed with a clean, updated texture.'],
+    ['Smooth', 'Feathered flat so the repair disappears under raking light.'],
+  ];
+  const texBtns = [...document.querySelectorAll('[data-tex]')];
+  const texImgs = [...document.querySelectorAll('.tex-view img')];
+  const pickTex = (i, focus) => {
+    texBtns.forEach((b, n) => { b.setAttribute('aria-selected', n === i); b.tabIndex = n === i ? 0 : -1; });
+    texImgs.forEach((im, n) => im.classList.toggle('is-on', n === i));
+    document.getElementById('tex-title').textContent = tex[i][0];
+    document.getElementById('tex-copy').textContent = tex[i][1];
+    if (focus) texBtns[i].focus();
+  };
+  texBtns.forEach((b, n) => {
+    b.addEventListener('click', () => pickTex(n));
+    b.addEventListener('keydown', e => {
+      const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (d) { pickTex((n + d + texBtns.length) % texBtns.length, true); e.preventDefault(); }
+    });
+  });
+  // A broken example image falls back to the knockdown photo rather than an empty panel.
+  texImgs.forEach(im => im.addEventListener('error', () => { im.src = texImgs[0].src; im.srcset = texImgs[0].srcset; }, { once: true }));
+
+  /* Job filters. */
+  const filterBtns = [...document.querySelectorAll('[data-filter]')];
+  const jobs = [...document.querySelectorAll('.job')];
+  filterBtns.forEach(b => b.addEventListener('click', () => {
+    const f = b.dataset.filter;
+    filterBtns.forEach(x => x.setAttribute('aria-pressed', x === b));
+    jobs.forEach(j => {
+      const show = f === 'all' || j.dataset.kind === f || j.dataset.kind === 'all';
+      if (show && j.hidden) { j.hidden = false; if (!still) { j.classList.add('is-entering'); requestAnimationFrame(() => requestAnimationFrame(() => j.classList.remove('is-entering'))); } }
+      else if (!show) j.hidden = true;
+    });
+  }));
+
+  /* Estimator: size readout, slider fill, photo drop. */
+  const size = document.getElementById('size'), out = document.getElementById('size-out');
+  const sizes = ['Under 1 in', 'About 2 in', 'About 6 in', 'About 1 ft', 'About 2 ft', 'About 3 ft', 'About 4 ft', 'A full sheet', 'Most of a wall', 'A whole room'];
+  const setSize = () => { out.textContent = sizes[size.value - 1]; size.style.setProperty('--fill', ((size.value - 1) / 9 * 100) + '%'); size.setAttribute('aria-valuetext', sizes[size.value - 1]); };
+  size.addEventListener('input', setSize); setSize();
+  const drop = document.getElementById('drop'), files = document.getElementById('files'), fileInput = drop.querySelector('input');
+  ['dragenter', 'dragover'].forEach(t => drop.addEventListener(t, () => drop.classList.add('is-over')));
+  ['dragleave', 'drop'].forEach(t => drop.addEventListener(t, () => drop.classList.remove('is-over')));
+  fileInput.addEventListener('change', () => { const n = fileInput.files.length; files.textContent = n ? `${n} photo${n > 1 ? 's' : ''} added` : 'JPG, PNG or HEIC'; });
+
+  /* Magnetic pull on primary buttons (fine pointers only). */
+  if (fine && !still) document.querySelectorAll('[data-magnetic]').forEach(btn => {
+    btn.addEventListener('pointermove', e => { const r = btn.getBoundingClientRect(); btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .18}px, ${(e.clientY - r.top - r.height / 2) * .3}px)`; });
+    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+  });
+
+  /* Yelp's official review embeds, loaded once the section is near. */
+  const rev = document.getElementById('reviews');
+  const rio = new IntersectionObserver(es => { if (es[0].isIntersecting) { rio.disconnect(); const s = document.createElement('script'); s.src = 'https://www.yelp.com/embed/widgets.js'; s.async = true; document.body.appendChild(s); } }, { rootMargin: '400px' });
+  rio.observe(rev);
+}
+</script>
+</body>
+</html>
