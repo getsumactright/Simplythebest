@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Simply The Best Drywall · Where was the crack?</title>
+<meta name="description" content="Drywall repair and texture matching in Elk Grove and the Sacramento area. Ray repairs the crack, then matches the texture so you never find it. Call (916) 289-1026.">
+<link rel="icon" href="../../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Sofia+Sans+Extra+Condensed:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/base.css?v=7">
+<style>
+  :root {
+    --wall: #c1bfbb;
+    --ink: #3a3e44;
+    --ink-2: #35373d;
+    --graphite: #4a4c50;
+    --red: #b3241f;
+    --red-deep: #8f1b17;
+    --logo-red: #bd3229;
+    --focus: #3a3e44;
+    --u: min(100vw / 1344, 100svh / 752, 1.15px);
+    --tile: calc(1200 * var(--u));
+    --display: "Sofia Sans Extra Condensed", "Arial Narrow", sans-serif;
+    --body: "Albert Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+  ::selection { background: var(--ink); color: var(--wall); }
+  .skip { --skip-bg: var(--ink); --skip-fg: var(--wall); border-radius: 4px; }
+  body { margin: 0; background: var(--wall); color: var(--ink); font: 500 17px/1.6 var(--body); }
+
+  /* ---------- The wall: one continuous ground under raking daylight ---------- */
+  .wall { background: url(../../assets/plates/light-side.png) 0 0 / 100% 100% no-repeat, url(../../assets/plates/wall.png) 0 0 / var(--tile) auto repeat; }
+
+  /* ---------- Hero ---------- */
+  /* The hero pins while the repair plays; the wall tile is anchored to the hero so the patch can match it exactly. */
+  .pin { position: relative; height: 270svh; }
+  .hero { position: sticky; top: 0; height: 100svh; min-height: calc(752 * var(--u)); overflow: hidden; isolation: isolate;
+    background: url(../../assets/plates/wall.png) 0 0 / var(--tile) auto repeat; }
+  .patch { position: absolute; z-index: 1; pointer-events: none; opacity: 0;
+    background: url(../../assets/plates/wall.png) 0 0 / var(--tile) auto repeat;
+    filter: blur(calc(var(--blur, 0) * 1px)) brightness(var(--lum, 1)) saturate(var(--sat, 1));
+    -webkit-mask-image: radial-gradient(ellipse var(--rx, 0px) var(--ry, 0px) at 50% 50%, #000 58%, transparent 100%);
+            mask-image: radial-gradient(ellipse var(--rx, 0px) var(--ry, 0px) at 50% 50%, #000 58%, transparent 100%); }
+  .light { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: url(../../assets/plates/light.png) center / cover no-repeat, url(../../assets/plates/light-side.png) 0 0 / 100% 100% no-repeat; }
+  .logo-link, .hero h1, .sub, .btn, .trust, .rail { z-index: 4; }
+  .p-crack { z-index: 0; }
+  .p-circle, .p-note { z-index: 2; }
+  .stage { position: absolute; left: calc(50% - 672 * var(--u)); top: calc(50% - 376 * var(--u)); width: calc(1344 * var(--u)); height: calc(752 * var(--u)); }
+  .mark { position: absolute; inset: 0; --mx: 0; --my: 0; }
+  .mark img.plate { position: absolute; object-fit: contain; pointer-events: none; }
+  .p-circle { left: calc((619 - var(--mx)) * var(--u)); top: calc((154 - var(--my)) * var(--u)); width: calc(594 * var(--u)); height: calc(399 * var(--u)); }
+  .p-crack  { left: calc((790 - var(--mx)) * var(--u)); top: calc((160 - var(--my)) * var(--u)); width: calc(257 * var(--u)); height: calc(383 * var(--u)); }
+  .p-note   { left: calc((672 - var(--mx)) * var(--u)); top: calc((451 - var(--my)) * var(--u)); width: calc(269 * var(--u)); height: calc(150 * var(--u)); object-fit: cover; }
+
+  .logo-link { position: absolute; left: calc(50 * var(--u)); top: calc(57 * var(--u)); color: var(--logo-red); }
+  .logo-link .logo { --logo-h: calc(40 * var(--u)); display: block; }
+
+  .hero h1 { position: absolute; left: calc(47 * var(--u)); top: calc(176 * var(--u)); margin: 0;
+    font: 800 calc(201 * var(--u)) / .746 var(--display); letter-spacing: -0.032em; color: var(--ink); }
+  .hero h1 span { display: block; }
+  .sub { position: absolute; left: calc(52 * var(--u)); top: calc(484 * var(--u)); margin: 0;
+    font: 500 calc(29.5 * var(--u)) / 1.2 var(--body); color: var(--ink-2); white-space: nowrap; }
+
+  .btn { position: absolute; top: calc(545 * var(--u)); height: calc(57 * var(--u)); display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 999px; font: 500 calc(21 * var(--u)) / 1 var(--body); text-decoration: none; white-space: nowrap;
+    transition: background-color .2s, color .2s, scale .12s; }
+  .btn:active { scale: .97; }
+  .btn-call { left: calc(49 * var(--u)); width: calc(290 * var(--u)); background: var(--red); color: #fff; }
+  .btn-call:hover { background: var(--red-deep); }
+  .btn-ballpark { left: calc(357 * var(--u)); width: calc(209 * var(--u)); border: calc(2 * var(--u)) solid var(--ink-2); color: var(--ink-2); box-sizing: border-box; }
+  .btn-ballpark:hover { background: var(--ink-2); color: var(--wall); }
+
+  .trust { position: absolute; left: calc(47 * var(--u)); top: calc(675 * var(--u)); margin: 0;
+    font: 500 calc(15.5 * var(--u)) / 1.2 var(--body); color: #2b2e33; white-space: nowrap; }
+
+  /* Stage rail: Hole, Patch, Mud, Texture, Gone */
+  .rail { position: absolute; left: calc(1256 * var(--u)); top: calc(96 * var(--u)); height: calc(525 * var(--u)); width: calc(80 * var(--u)); margin: 0; padding: 0; list-style: none; }
+  .rail::before { content: ""; position: absolute; left: calc(15 * var(--u)); top: 0; bottom: 0; width: 1px; background: #5c5d5e; }
+  .rail li { position: absolute; left: 0; display: flex; align-items: center; gap: calc(14 * var(--u)); translate: 0 -50%; }
+  .rail li:nth-child(1) { top: calc(67 * var(--u)); }
+  .rail li:nth-child(2) { top: calc(181 * var(--u)); }
+  .rail li:nth-child(3) { top: calc(294 * var(--u)); }
+  .rail li:nth-child(4) { top: calc(409 * var(--u)); }
+  .rail li:nth-child(5) { top: calc(525 * var(--u)); }
+  .rail button { display: flex; align-items: center; gap: calc(12 * var(--u)); padding: calc(6 * var(--u)) 0; border: 0; background: none;
+    font: 500 calc(15 * var(--u)) / 1 var(--body); color: #2b2e33; cursor: pointer; }
+  .rail .dot { width: calc(10 * var(--u)); height: calc(10 * var(--u)); margin-left: calc(10 * var(--u)); border-radius: 50%; background: #2b2e33; transition: background-color .25s, scale .25s; }
+  .rail [aria-current="step"] .dot { background: var(--red); scale: 1.8; }
+
+  @media (max-width: 900px) {
+    :root { --tile: 920px; }
+    .pin { height: 230svh; }
+    .hero { min-height: 0; }
+    .stage { position: absolute; inset: 0; left: 0; top: 0; width: auto; height: auto; display: flex; flex-direction: column; align-items: flex-start;
+      padding: max(16px, env(safe-area-inset-top)) 20px max(14px, env(safe-area-inset-bottom)); box-sizing: border-box; }
+    .logo-link, .hero h1, .sub, .btn, .trust, .rail { position: relative; left: auto; top: auto; }
+    .logo-link .logo { --logo-h: 30px; }
+    .hero h1 { margin-top: 3.5svh; font-size: clamp(60px, 20vw, 120px); line-height: .8; }
+    .sub { margin-top: 12px; font-size: 17px; white-space: normal; }
+    .btn { height: 50px; width: auto; padding: 0 22px; font-size: 16px; }
+    .btn-call { margin-top: 18px; }
+    .btn-ballpark { margin-top: 10px; border-width: 2px; }
+    .trust { margin-top: 12px; font-size: 13px; white-space: normal; }
+    .mark { position: relative; inset: auto; align-self: center; flex: none; margin: auto 0;
+      --mx: 600; --my: 140; --u: min((100vw - 40px) / 620, 34svh / 480); width: calc(620 * var(--u)); height: calc(480 * var(--u)); }
+    .logo-link { order: 1; } .hero h1 { order: 2; } .sub { order: 3; } .btn-call { order: 4; } .btn-ballpark { order: 5; } .trust { order: 6; } .mark { order: 7; } .rail { order: 8; }
+    .rail { width: 100%; height: auto; display: flex; justify-content: space-between; }
+    .rail::before { left: 4px; right: 4px; top: 9px; bottom: auto; width: auto; height: 1px; }
+    .rail li { position: static; translate: none; }
+    .rail button { flex-direction: column; gap: 6px; padding: 4px 0 0; font-size: 13px; min-height: 44px; justify-content: flex-start; }
+    .rail .dot { width: 9px; height: 9px; margin: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { .pin { height: auto; } .hero { position: relative; } }
+
+  /* ---------- Sections: more of the same wall ---------- */
+  :root { --text: #2b2e33; --text-2: #45484d; --rule: #5c5d5e; --gutter: clamp(20px, 4vw, 56px); }
+  main section { scroll-margin-top: 24px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+  .sec { padding: clamp(88px, 12vw, 168px) 0 0; }
+  .sec h2 { margin: 0; font: 800 clamp(56px, 7.4vw, 112px) / .86 var(--display); letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
+  .lede { margin: 22px 0 0; max-width: 46ch; font-size: 19px; color: var(--text-2); text-wrap: pretty; }
+  .sec-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px 64px; margin-bottom: clamp(40px, 5vw, 64px); }
+  .sec-top .lede { margin: 0; }
+
+  /* Recessed into the wall: a cut edge with light catching the lower lip. */
+  .inset { position: relative; border-radius: 4px; overflow: hidden; background: #b5b3af;
+    box-shadow: inset 0 3px 7px rgba(30, 32, 36, .45), inset 0 -1px 0 rgba(255, 255, 255, .45), 0 1px 0 rgba(255, 255, 255, .5); }
+  .inset::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+    box-shadow: inset 0 3px 7px rgba(30, 32, 36, .4), inset 0 -1px 0 rgba(255, 255, 255, .4); }
+  .inset img, .inset video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* Textures: six samples set into the wall */
+  .tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); margin: 0; padding: 0; list-style: none; }
+  .tile { display: grid; gap: 14px; align-content: start; }
+  .tile .inset { aspect-ratio: 1; background: none; box-shadow: none; }
+  .tile .inset::after { content: none; }
+  .tile h3 { margin: 0; font: 600 22px/1.15 var(--body); letter-spacing: -0.01em; color: var(--text); text-align: center; }
+  .tile p { margin: -6px 0 0; font-size: 15px; line-height: 1.5; color: var(--text-2); text-align: center; }
+  .tiles-note { margin: 28px 0 0; font-size: 14px; color: var(--text-2); }
+
+  /* Real work */
+  .work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+  .shot { margin: 0; display: grid; gap: 14px; }
+  .shot .compare { aspect-ratio: 9 / 14; }
+  .shot figcaption { font-size: 16px; color: var(--text-2); }
+  .shot figcaption b { display: block; font: 600 18px/1.3 var(--body); color: var(--text); }
+  .compare-tag { font: 600 13px/1 var(--body); padding: 6px 10px; border-radius: 999px; background: rgba(43, 46, 51, .78); color: #f1f0ed; }
+  .reel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: clamp(20px, 3vw, 40px); margin-top: clamp(40px, 5vw, 64px); }
+  .reel .shot .inset { aspect-ratio: 1; }
+
+  /* Ray */
+  .ray { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(36px, 6vw, 96px); align-items: center; }
+  .ray .inset { aspect-ratio: 1; }
+  .ray blockquote { margin: 0; font: 800 clamp(40px, 4.6vw, 68px) / .95 var(--display); letter-spacing: -0.01em; color: var(--ink); }
+  .ray-by { margin: 24px 0 0; font-size: 17px; color: var(--text-2); max-width: 52ch; }
+  .ray-by b { color: var(--text); font-weight: 600; }
+
+  /* Ballpark */
+  .ballpark { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 96px); align-items: start; padding-bottom: clamp(88px, 10vw, 140px); }
+  .phone { display: inline-block; margin-top: 30px; white-space: nowrap; font: 800 clamp(52px, 5.6vw, 92px) / .9 var(--display); letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+  .phone:hover { color: var(--red); }
+  .details { margin: 30px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; }
+  .details dt { font-size: 14px; color: var(--text-2); }
+  .details dd { margin: 2px 0 0; font-size: 16px; color: var(--text); }
+  .details a { color: var(--text); text-underline-offset: 3px; }
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; }
+  label { display: grid; gap: 8px; font: 600 15px/1.2 var(--body); color: var(--text); }
+  label.full { grid-column: 1 / -1; }
+  input, textarea { width: 100%; box-sizing: border-box; min-height: 52px; padding: 13px 15px; border: 0; border-radius: 4px; color: var(--text); background: #cfcdc9;
+    font: 500 16px/1.4 var(--body); box-shadow: inset 0 2px 5px rgba(30, 32, 36, .35), inset 0 -1px 0 rgba(255, 255, 255, .45); }
+  input::placeholder, textarea::placeholder { color: #4f5257; }
+  textarea { min-height: 132px; resize: vertical; }
+  input:focus-visible, textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+  .send { min-height: 52px; padding: 0 26px; border: 2px solid var(--ink-2); border-radius: 999px; background: none; color: var(--ink-2); font: 600 17px/1 var(--body); transition: background-color .2s, color .2s, scale .12s; }
+  .send:hover { background: var(--ink-2); color: var(--wall); }
+  .send:active { scale: .97; }
+  [data-form-status] { font-size: 15px; color: var(--text-2); }
+
+  footer { border-top: 1px solid var(--rule); }
+  footer .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; padding-block: 28px 36px; font-size: 15px; color: var(--text-2); }
+  footer .logo { --logo-h: 26px; color: var(--logo-red); }
+  footer nav { display: flex; gap: 22px; margin-left: auto; }
+  footer a { color: var(--text); text-underline-offset: 3px; }
+
+  @media (max-width: 1000px) {
+    .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .ray, .ballpark { grid-template-columns: 1fr; }
+    .ray .inset { max-width: 420px; }
+  }
+  @media (max-width: 700px) {
+    .work { grid-template-columns: 1fr; }
+    .shot .compare { aspect-ratio: 4 / 5; }
+    .reel { grid-template-columns: 1fr 1fr; }
+    .reel .shot:first-child { grid-column: 1 / -1; }
+    .tiles { grid-template-columns: 1fr 1fr; }
+    form, .details { grid-template-columns: 1fr; }
+    footer nav { margin-left: 0; }
+  }
+</style>
+</head>
+<body class="wall">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="pin" data-pin>
+<section class="hero" aria-labelledby="hero-h">
+  <div class="stage">
+    <div class="mark" data-mark aria-hidden="true">
+      <img class="plate p-crack" src="../../assets/plates/crack.png" alt="" width="688" height="1024">
+      <div class="patch" data-patch></div>
+      <img class="plate p-circle" src="../../assets/plates/circle.png" alt="" width="1024" height="688">
+      <img class="plate p-note" src="../../assets/plates/note.png" alt="" width="1344" height="752">
+    </div>
+
+    <a class="logo-link" href="#top" aria-label="Simply The Best Drywall, home"><span class="logo" aria-hidden="true"></span></a>
+    <h1 id="hero-h"><span>Where was</span><span>the crack?</span></h1>
+    <p class="sub">Scroll and watch Ray make it disappear.</p>
+    <a class="btn btn-call" href="tel:+19162891026">Call Ray (916) 289-1026</a>
+    <a class="btn btn-ballpark" href="#ballpark">Get a ballpark</a>
+    <p class="trust">Family owned&nbsp;&nbsp;·&nbsp;&nbsp;Elk Grove&nbsp;&nbsp;·&nbsp;&nbsp;Drywall since 1996</p>
+
+    <ol class="rail" aria-label="Repair stages">
+      <li><button type="button" aria-current="step"><span class="dot"></span>Hole</button></li>
+      <li><button type="button"><span class="dot"></span>Patch</button></li>
+      <li><button type="button"><span class="dot"></span>Mud</button></li>
+      <li><button type="button"><span class="dot"></span>Texture</button></li>
+      <li><button type="button"><span class="dot"></span>Gone</button></li>
+    </ol>
+  </div>
+  <div class="light" aria-hidden="true"></div>
+</section>
+</div>
+
+<main id="main">
+  <section class="sec" id="textures" aria-labelledby="textures-h">
+    <div class="wrap">
+      <div class="sec-top">
+        <h2 id="textures-h">Whatever’s on your wall, Ray matches it.</h2>
+        <p class="lede">A patch only disappears when the texture around it does too. These are the finishes he puts back.</p>
+      </div>
+      <ul class="tiles">
+        <li class="tile"><div class="inset"><img src="../../assets/plates/tile-smooth.webp" width="640" height="640" alt="Example of a smooth, skim-coated wall" loading="lazy"></div><h3>Smooth</h3><p>Skim-coated and sanded flat.</p></li>
+        <li class="tile"><div class="inset"><img src="../../assets/plates/tile-imperfect-smooth.webp" width="640" height="640" alt="Example of an imperfect smooth, hand-troweled wall" loading="lazy"></div><h3>Imperfect smooth</h3><p>Troweled by hand. His bathroom retexture.</p></li>
+        <li class="tile"><div class="inset"><img src="../../assets/plates/tile-orange-peel.webp" width="640" height="640" alt="Example of an orange peel texture" loading="lazy"></div><h3>Orange peel</h3><p>Fine, even spray.</p></li>
+        <li class="tile"><div class="inset"><img src="../../assets/plates/tile-knockdown.webp" width="640" height="640" alt="Example of a knockdown texture" loading="lazy"></div><h3>Knockdown</h3><p>Splatter, knocked flat with a knife.</p></li>
+        <li class="tile"><div class="inset"><img src="../../assets/plates/tile-skip-trowel.webp" width="640" height="640" alt="Example of a skip trowel texture" loading="lazy"></div><h3>Skip trowel</h3><p>Hand-made crescents.</p></li>
+        <li class="tile"><div class="inset"><img src="../../assets/plates/tile-popcorn.webp" width="640" height="640" alt="Example of a popcorn ceiling texture" loading="lazy"></div><h3>Popcorn</h3><p>Scraped off, then resprayed.</p></li>
+      </ul>
+      <p class="tiles-note">These six are example textures, not job photos. Ray’s real work is next.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-top">
+        <h2 id="work-h">These ones are real.</h2>
+        <p class="lede">Jobs from Ray’s own phone. Drag across each photo to see it before and after.</p>
+      </div>
+      <div class="work">
+        <figure class="shot">
+          <div class="compare inset" data-compare>
+            <img src="../../assets/img/ceiling-after.webp" srcset="../../assets/img/ceiling-after.webp 450w, ../../assets/img/ceiling-after@2x.webp 900w" sizes="(max-width: 700px) 90vw, 30vw" alt="After: the kitchen ceiling patched and textured, no opening visible" loading="lazy">
+            <div class="compare-before"><img src="../../assets/img/ceiling-before.webp" srcset="../../assets/img/ceiling-before.webp 450w, ../../assets/img/ceiling-before@2x.webp 900w" sizes="(max-width: 700px) 90vw, 30vw" alt="Before: a large rectangular opening cut into the textured kitchen ceiling" loading="lazy"></div>
+            <span class="compare-handle" aria-hidden="true"></span>
+            <span class="compare-tag compare-tag--before">Before</span><span class="compare-tag compare-tag--after">After</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the kitchen ceiling before and after">
+          </div>
+          <figcaption><b>Kitchen ceiling</b>Opening closed, texture matched.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="compare inset" data-compare>
+            <img src="../../assets/img/skim-after.webp" srcset="../../assets/img/skim-after.webp 450w, ../../assets/img/skim-after@2x.webp 900w" sizes="(max-width: 700px) 90vw, 30vw" alt="After: ceiling with an even, matched texture" loading="lazy">
+            <div class="compare-before"><img src="../../assets/img/skim-before.webp" srcset="../../assets/img/skim-before.webp 450w, ../../assets/img/skim-before@2x.webp 900w" sizes="(max-width: 700px) 90vw, 30vw" alt="Before: ceiling patched with smooth compound, texture not yet sprayed" loading="lazy"></div>
+            <span class="compare-handle" aria-hidden="true"></span>
+            <span class="compare-tag compare-tag--before">Before</span><span class="compare-tag compare-tag--after">After</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the ceiling respray before and after">
+          </div>
+          <figcaption><b>Ceiling respray</b>Patched smooth, then sprayed to match.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="compare inset" data-compare>
+            <img src="../../assets/img/stairs-after.webp" srcset="../../assets/img/stairs-after.webp 450w, ../../assets/img/stairs-after@2x.webp 900w" sizes="(max-width: 700px) 90vw, 30vw" alt="After: smooth, finished stairwell wall beside new wood floors" loading="lazy">
+            <div class="compare-before"><img src="../../assets/img/stairs-before.webp" srcset="../../assets/img/stairs-before.webp 450w, ../../assets/img/stairs-before@2x.webp 900w" sizes="(max-width: 700px) 90vw, 30vw" alt="Before: stairwell wall masked in plastic during the repair" loading="lazy"></div>
+            <span class="compare-handle" aria-hidden="true"></span>
+            <span class="compare-tag compare-tag--before">Before</span><span class="compare-tag compare-tag--after">After</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the stairwell before and after">
+          </div>
+          <figcaption><b>Stairwell wall</b>Repaired and finished.</figcaption>
+        </figure>
+      </div>
+      <div class="reel">
+        <figure class="shot"><div class="inset"><video muted playsinline loop preload="none" data-loop poster="../../assets/video/popcorn-scrape.jpg" src="../../assets/video/popcorn-scrape.mp4" aria-label="Ray scraping a popcorn ceiling"></video></div><figcaption><b>Popcorn removal</b>The old texture comes down.</figcaption></figure>
+        <figure class="shot"><div class="inset"><video muted playsinline loop preload="none" data-loop poster="../../assets/video/popcorn-after.jpg" src="../../assets/video/popcorn-after.mp4" aria-label="The same ceiling with its new texture"></video></div><figcaption><b>Respray</b>A fresh texture goes up.</figcaption></figure>
+        <figure class="shot"><div class="inset"><video muted playsinline loop preload="none" data-loop poster="../../assets/video/smooth-skim.jpg" src="../../assets/video/smooth-skim.mp4" aria-label="Skim coat going on during a bathroom retexture"></video></div><figcaption><b>Bathroom retexture</b>Imperfect smooth, by hand.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ray" aria-label="About Ray">
+    <div class="wrap ray">
+      <div class="inset"><img src="../../assets/img/ray-family.webp" srcset="../../assets/img/ray-family.webp 449w, ../../assets/img/ray-family@2x.webp 898w" sizes="(max-width: 1000px) 420px, 36vw" alt="Ray Abreu with his wife and children" loading="lazy"></div>
+      <div>
+        <blockquote>“Once I’m in your phone as your drywall guy and have completed a job for you, that’s who I become, YOUR drywall guy!”</blockquote>
+        <p class="ray-by"><b>Carlos Raymond “Ray” Abreu</b>, pictured with his wife and children. He started in drywall in 1996, right after high school, spent about 16 years in Painters and Tapers Union Local 487, and now works as a residential specialist.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ballpark" aria-labelledby="ballpark-h">
+    <div class="wrap ballpark">
+      <div>
+        <h2 id="ballpark-h">Show Ray the wall.</h2>
+        <p class="lede">Call and tell him what you’re looking at. He’ll give you a ballpark.</p>
+        <a class="phone" href="tel:+19162891026">(916) 289-1026</a>
+        <dl class="details">
+          <div><dt>Hours</dt><dd>Mon–Fri 8–9, Sat–Sun 10–9</dd></div>
+          <div><dt>Service area</dt><dd>Elk Grove and the Sacramento area</dd></div>
+          <div><dt>Reviews</dt><dd>4.7 from 48 on <a href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove" rel="noopener">Yelp</a>, more on <a href="https://www.homeadvisor.com/rated.SimplyTheBest.14765959.html" rel="noopener">HomeAdvisor</a></dd></div>
+          <div><dt>Good to know</dt><dd>Cards, Zelle and Venmo. ASL proficient.</dd></div>
+        </dl>
+      </div>
+      <form data-demo-form novalidate aria-label="Ask for a ballpark">
+        <label>First name<input name="first" autocomplete="given-name" required></label>
+        <label>Last name<input name="last" autocomplete="family-name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label class="full">What needs fixing?<textarea name="details" required placeholder="A crack above the hallway door, about a foot long."></textarea></label>
+        <div class="form-foot"><button class="send" type="submit">Send to Ray</button><span data-form-status role="status"></span></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" role="img" aria-label="Simply The Best Drywall"></span>
+    <span>Family owned in Elk Grove, CA</span>
+    <nav aria-label="Social">
+      <a href="https://www.facebook.com/simplythebestdrywall/" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" rel="noopener">Instagram</a>
+      <a href="https://www.yelp.com/biz/simply-the-best-drywall-elk-grove" rel="noopener">Yelp</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../../assets/stb.js?v=7"></script>
+<script>
+/* The signature moment: scrolling repairs the crack. Hole, Patch, Mud, Texture, Gone. */
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pin = document.querySelector('[data-pin]');
+  const hero = pin.querySelector('.hero');
+  const mark = hero.querySelector('[data-mark]');
+  const patch = hero.querySelector('[data-patch]');
+  const crack = hero.querySelector('.p-crack');
+  const steps = [...hero.querySelectorAll('.rail button')];
+  const marks = [0, .2, .45, .7, .92];             // where each stage starts, 0 to 1 through the pin
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const ease = t => t < 0 ? 0 : t > 1 ? 1 : t * t * (3 - 2 * t);
+  const span = (p, a, b) => ease((p - a) / (b - a));
+  let u = 1, p = 0, shown = -1;
+
+  function place() {
+    const h = hero.getBoundingClientRect(), m = mark.getBoundingClientRect(), cs = getComputedStyle(mark);
+    const mx = parseFloat(cs.getPropertyValue('--mx')) || 0, my = parseFloat(cs.getPropertyValue('--my')) || 0;
+    u = m.width / (mx ? 620 : 1344);
+    const w = 560 * u, hh = 600 * u, x = (935 - mx) * u - w / 2, y = (343 - my) * u - hh / 2;   // centred on the comp's crack
+    const ox = m.left - h.left + x, oy = m.top - h.top + y;                                       // where that box sits on the hero's wall
+    Object.assign(patch.style, { left: x + 'px', top: y + 'px', width: w + 'px', height: hh + 'px', backgroundPosition: (-ox) + 'px ' + (-oy) + 'px' });
+  }
+
+  function draw() {
+    const patchIn = span(p, .14, .3), mud = span(p, .36, .58), tex = span(p, .62, .86);
+    const rx = lerp(lerp(0, 60, patchIn), 230, mud) * u;     // a tight strip, then a wide skim
+    const ry = lerp(lerp(0, 230, patchIn), 285, mud) * u;
+    patch.style.opacity = patchIn > 0 ? 1 : 0;
+    patch.style.setProperty('--rx', rx + 'px');
+    patch.style.setProperty('--ry', ry + 'px');
+    patch.style.setProperty('--blur', lerp(lerp(1.5, 9, mud), 0, tex) * u);
+    patch.style.setProperty('--lum', lerp(lerp(1.2, 1.1, mud), 1, tex));
+    patch.style.setProperty('--sat', lerp(.7, 1, tex));
+    crack.style.opacity = p > .9 ? 0 : 1;
+    let i = 0; marks.forEach((m, k) => { if (p >= m) i = k; });
+    if (i !== shown) {
+      shown = i;
+      steps.forEach((b, k) => k === i ? b.setAttribute('aria-current', 'step') : b.removeAttribute('aria-current'));
+    }
+  }
+
+  function progress() {
+    const r = pin.getBoundingClientRect(), run = pin.offsetHeight - innerHeight;
+    return run > 0 ? Math.min(1, Math.max(0, -r.top / run)) : p;
+  }
+
+  let ticking = false;
+  const onScroll = () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; p = progress(); draw(); }); };
+
+  steps.forEach((b, k) => b.addEventListener('click', () => {
+    if (reduce) { p = k === 4 ? 1 : marks[k] + .1; draw(); return; }
+    const run = pin.offsetHeight - innerHeight;
+    scrollTo({ top: pin.offsetTop + run * (k === 4 ? 1 : marks[k] + .08), behavior: 'smooth' });
+  }));
+
+  addEventListener('resize', () => { place(); onScroll(); });
+  place();
+  if (!reduce) addEventListener('scroll', onScroll, { passive: true });
+  p = reduce ? 0 : progress(); draw();
+})();
+</script>
+</body>
+</html>

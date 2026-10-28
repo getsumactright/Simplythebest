@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simply The Best Drywall · Elk Grove drywall repair</title>
+<meta name="description" content="Family owned drywall repair in Elk Grove. Cosmetic repairs and texture matching so you're never reminded of the crack or hole again. Call (916) 289-1026.">
+<meta name="theme-color" content="#e2e7e2">
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/base.css?v=3">
+<style>
+  :root {
+    --ground: #e2e7e2;
+    --paper: #f5f7f4;
+    --ink: #121715;
+    --ink-2: #3e4944;
+    --line: rgba(18, 23, 21, .16);
+    --signal: #d9482b;
+    --signal-ink: #b23519;
+    --focus: var(--signal-ink);
+    --tape-h: 22px;
+    --section: clamp(88px, 11vw, 150px);
+    --skip-bg: var(--ink); --skip-fg: var(--paper);
+    color-scheme: light;
+  }
+  body { background: var(--ground); color: var(--ink); font: 400 1.0625rem/1.6 "Archivo", system-ui, sans-serif; font-stretch: 100%; caret-color: var(--signal); }
+  ::selection { background: var(--ink); color: var(--paper); }
+  a { text-underline-offset: .2em; text-decoration-thickness: 1px; }
+  .wrap { width: min(1280px, 100% - 32px); margin-inline: auto; }
+  @media (min-width: 720px) { .wrap { width: min(1280px, 100% - 64px); } }
+  .x { font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; line-height: .88; }
+
+  /* ---------- The tape measure: reading progress you can actually read ---------- */
+  .tape { position: fixed; top: 0; left: 0; z-index: 60; height: var(--tape-h); width: calc(var(--p, 0) * 100%); min-width: 14px; pointer-events: none; }
+  .tape-blade { position: absolute; inset: 0; overflow: hidden; background: var(--signal);
+    background-image:
+      repeating-linear-gradient(90deg, rgba(18,23,21,.85) 0 1.5px, transparent 1.5px 64px),
+      repeating-linear-gradient(90deg, rgba(18,23,21,.7) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, rgba(18,23,21,.5) 0 1px, transparent 1px 16px),
+      repeating-linear-gradient(90deg, rgba(18,23,21,.35) 0 1px, transparent 1px 8px);
+    background-size: 100% 100%, 100% 62%, 100% 42%, 100% 26%; background-repeat: no-repeat; box-shadow: 0 2px 6px rgba(0,0,0,.18);
+  }
+  .tape-nums { position: absolute; left: 0; bottom: 1px; display: flex; font: 500 10px/1 "JetBrains Mono", monospace; color: rgba(18,23,21,.85); }
+  .tape-nums span { width: 64px; text-align: right; padding-right: 3px; flex: none; }
+  .tape::after { /* the hook at the end of the blade */ content: ""; position: absolute; right: -3px; top: 0; width: 5px; height: calc(var(--tape-h) + 7px); background: #2a302d; border-radius: 0 0 2px 2px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 26px; font-weight: 700; font-stretch: 112%; text-decoration: none; border: 2px solid var(--ink); transition: background .2s, color .2s, transform .25s cubic-bezier(.2,.7,.2,1); white-space: nowrap; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn-ink { background: var(--ink); color: var(--paper); }
+  .btn-ink:hover { background: var(--signal-ink); border-color: var(--signal-ink); transform: translateY(-2px); }
+  .btn-line { color: var(--ink); }
+  .btn-line:hover { background: var(--ink); color: var(--paper); }
+
+  .top { position: sticky; top: var(--tape-h); z-index: 50; background: rgba(226,231,226,.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; gap: 24px; min-height: 64px; }
+  .top .logo { --logo-h: 26px; color: var(--ink); }
+  .top nav { margin-left: auto; display: none; }
+  .top nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .top nav a { text-decoration: none; font-weight: 600; font-size: .95rem; padding: 10px 0; }
+  .top nav a:hover { color: var(--signal-ink); }
+  .top .btn { margin-left: auto; min-height: 44px; padding: 0 16px; font-size: .95rem; }
+  @media (min-width: 900px) { .top nav { display: block; } .top .btn { margin-left: 8px; } }
+  .top .btn span { display: none; }
+  @media (min-width: 520px) { .top .btn span { display: inline; } }
+  body { padding-top: var(--tape-h); }
+
+  /* ---------- Hero: a poster ---------- */
+  .hero { padding: clamp(40px, 6vw, 80px) 0 0; }
+  .hero h1 { margin: 0; font-size: clamp(3.2rem, 10.6vw, 10.4rem); }
+  .hero h1 span { color: var(--signal); }
+  .hero-row { display: grid; gap: 28px; margin-top: clamp(28px, 4vw, 48px); padding-top: 24px; border-top: 2px solid var(--ink); }
+  @media (min-width: 900px) { .hero-row { grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; align-items: start; } }
+  .hero-row p { margin: 0; font-size: clamp(1.1rem, 1.5vw, 1.3rem); max-width: 30em; }
+  .hero-row .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-weight: 600; }
+  .facts li { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  .facts span { font-weight: 400; color: var(--ink-2); }
+  .band { margin-top: clamp(40px, 6vw, 72px); position: relative; height: clamp(240px, 42vw, 560px); overflow: hidden; }
+  .band img { position: absolute; left: 0; width: 100%; height: 125%; top: -12%; object-fit: cover; will-change: transform; }
+  .band figcaption { position: absolute; right: 16px; bottom: 12px; font: 500 .75rem/1 "JetBrains Mono", monospace; letter-spacing: .04em; color: var(--ink-2); background: rgba(245,247,244,.8); padding: 6px 8px; }
+
+  section { scroll-margin-top: 100px; }
+  .section { padding-top: var(--section); }
+  h2 { margin: 0; font-size: clamp(2.4rem, 6vw, 5.6rem); }
+  h2 span { color: var(--signal); }
+  .sub { color: var(--ink-2); max-width: 34em; margin: 0; }
+  .head { display: grid; gap: 16px 64px; margin-bottom: 40px; }
+  @media (min-width: 900px) { .head { grid-template-columns: 1.3fr 1fr; align-items: end; } }
+
+  /* ---------- The sequence: pinned and scrubbed sideways on desktop ---------- */
+  .seq { position: relative; }
+  .seq-sticky { overflow: hidden; }
+  .seq-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 20px; scrollbar-width: none; }
+  .seq-track::-webkit-scrollbar { display: none; }
+  .step { flex: none; width: min(82vw, 340px); scroll-snap-align: start; margin: 0; }
+  .step .word { display: block; font-size: clamp(2.2rem, 3.4vw, 3.6rem); font-stretch: 100%; margin-bottom: 14px; white-space: nowrap; }
+  .step:last-child .word { color: var(--signal); }
+  .step img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: var(--paper); }
+  .step figcaption { padding-top: 12px; border-top: 2px solid var(--ink); margin-top: 14px; font-weight: 600; }
+  .seq-note { margin: 18px 0 0; color: var(--ink-2); font-size: .92rem; }
+  @media (min-width: 900px) {
+    .seq.is-pinned { height: 300vh; }
+    .seq.is-pinned .seq-sticky { position: sticky; top: calc(var(--tape-h) + 64px); height: calc(100svh - var(--tape-h) - 64px); display: flex; flex-direction: column; justify-content: center; }
+    .seq.is-pinned .seq-track { overflow: visible; scroll-snap-type: none; padding: 0 0 0 max(32px, calc((100vw - 1280px) / 2)); will-change: transform; }
+    .seq.is-pinned .step { width: clamp(320px, 28vw, 420px); }
+    .seq:not(.is-pinned) .seq-track { padding-inline: max(32px, calc((100vw - 1280px) / 2)); }
+    .seq.is-pinned .step img { aspect-ratio: auto; height: min(52svh, 520px); }
+    .seq-bar { height: 2px; background: var(--line); margin-top: 28px; position: relative; }
+    .seq-bar i { position: absolute; inset: 0 auto 0 0; width: calc(var(--sp, 0) * 100%); background: var(--ink); }
+  }
+  @media (max-width: 899px) { .seq-bar { display: none; } .seq-track { padding-left: 16px; } }
+
+  /* ---------- Services as one sentence ---------- */
+  .sentence { margin: 0; font-size: clamp(1.9rem, 4.6vw, 4rem); font-weight: 700; font-stretch: 110%; line-height: 1.22; letter-spacing: -.02em; max-width: 20ch; }
+  .sentence button { font: inherit; letter-spacing: inherit; color: var(--ink-2); background: none; border: 0; padding: 0; text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .14em; text-decoration-color: rgba(18,23,21,.3); transition: color .2s, text-decoration-color .2s; }
+  .sentence button:hover { color: var(--ink); text-decoration-color: var(--ink); }
+  .sentence button[aria-pressed="true"] { color: var(--signal-ink); text-decoration-color: var(--signal); }
+  .detail { margin-top: 32px; padding: 24px 0 0; border-top: 2px solid var(--ink); display: grid; gap: 8px 40px; max-width: 900px; min-height: 108px; }
+  @media (min-width: 900px) { .detail { grid-template-columns: 1fr 1.4fr; } }
+  .detail b { font-size: 1.3rem; font-stretch: 112%; }
+  .detail p { margin: 0; color: var(--ink-2); }
+  .services-note { margin: 40px 0 0; color: var(--ink-2); max-width: 36em; }
+
+  /* ---------- Field notes: two more jobs, unequal ---------- */
+  .notes { display: grid; gap: 20px; }
+  @media (min-width: 900px) { .notes { grid-template-columns: 7fr 5fr; align-items: end; } }
+  .notes figure { margin: 0; }
+  .notes .compare, .notes video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .notes figure:last-child video { aspect-ratio: 3 / 4; }
+  .notes figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; padding-top: 12px; margin-top: 12px; border-top: 2px solid var(--ink); font-weight: 600; }
+  .notes figcaption span { font-weight: 400; color: var(--ink-2); }
+  .tag { padding: 6px 10px; font: 500 .72rem/1 "JetBrains Mono", monospace; letter-spacing: .04em; text-transform: uppercase; background: var(--paper); color: var(--ink); }
+  .compare { --compare-line: var(--paper); --compare-knob: rgba(18,23,21,.55); }
+
+  /* ---------- Ray: a spec sheet ---------- */
+  .ray { display: grid; gap: 40px; }
+  @media (min-width: 900px) { .ray { grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; } }
+  .ray img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .ray figure { margin: 0; }
+  .ray figcaption { margin-top: 10px; color: var(--ink-2); font-size: .92rem; }
+  .spec { width: 100%; border-collapse: collapse; margin-top: 28px; }
+  .spec th, .spec td { text-align: left; padding: 14px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .spec th { width: 38%; font-weight: 400; color: var(--ink-2); padding-right: 16px; }
+  .spec td { font-weight: 600; }
+  .ray p { color: var(--ink-2); max-width: 36em; }
+  .ray blockquote { margin: 36px 0 0; padding: 0 0 0 0; font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 700; font-stretch: 105%; line-height: 1.3; letter-spacing: -.015em; max-width: 22em; }
+  .ray blockquote span { color: var(--signal-ink); }
+
+  /* ---------- Contact: a call-to-action poster ---------- */
+  .contact { display: grid; gap: 40px; padding-top: 28px; border-top: 2px solid var(--ink); }
+  @media (min-width: 960px) { .contact { grid-template-columns: 1.15fr .85fr; gap: 64px; } }
+  .contact .phone { display: block; margin-top: 18px; font-size: clamp(2rem, 5.2vw, 4.8rem); font-stretch: 100%; white-space: nowrap; color: var(--signal); text-decoration: none; font-variant-numeric: tabular-nums; }
+  .contact .phone:hover { color: var(--signal-ink); }
+  .contact .promise { margin: 28px 0 0; font-size: 1.15rem; max-width: 30em; }
+  .contact .rev { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .form-sheet { background: var(--paper); padding: clamp(24px, 4vw, 36px); border: 2px solid var(--ink); }
+  form { display: grid; gap: 16px; }
+  .two { display: grid; gap: 16px; }
+  @media (min-width: 560px) { .two { grid-template-columns: 1fr 1fr; } }
+  label { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
+  label abbr { color: var(--signal-ink); text-decoration: none; }
+  input, textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid rgba(18,23,21,.35); border-radius: 0; background: #fff; font-size: 1rem; transition: border-color .2s, box-shadow .2s; }
+  textarea { min-height: 120px; resize: vertical; }
+  input:focus, textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(217,72,43,.25); }
+  input::placeholder, textarea::placeholder { color: #66716b; }
+  form .btn { justify-self: start; }
+  [data-form-status] { margin: 0; min-height: 1.4em; color: var(--signal-ink); font-size: .92rem; font-weight: 600; }
+
+  footer { padding: var(--section) 0 40px; }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 24px; border-top: 2px solid var(--ink); padding-top: 24px; font-size: .9rem; color: var(--ink-2); }
+  .foot .logo { --logo-h: 24px; color: var(--ink); }
+  .foot nav { display: flex; gap: 8px; }
+  .foot nav a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--ink); transition: background .2s, color .2s; }
+  .foot nav a:hover { background: var(--ink); color: var(--paper); }
+  .foot svg { width: 18px; height: 18px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="tape" id="tape" aria-hidden="true"><div class="tape-blade"><div class="tape-nums" id="tape-nums"></div></div></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2A21 21 0 0 0 14.6 2C12.3 2 10.7 3.4 10.7 6v2.5H8V12h2.7v10H14V12h2.7l.4-3.5z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#main" aria-label="Simply The Best Drywall, home"><span class="logo" role="img" aria-label="Simply The Best Drywall"></span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#sequence">How it works</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Ray</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-ink" href="tel:+19162891026"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>(916) 289-1026</span><b class="sr-only">Call</b></a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="x">Nothing to see here<span>.</span></h1>
+      <div class="hero-row">
+        <p>That's the point. We specialize in cosmetic repairs and matching existing textures, so you're not reminded of the crack or hole every time you look at where it was.</p>
+        <div class="ctas">
+          <a class="btn btn-ink" href="tel:+19162891026"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Ray</a>
+          <a class="btn btn-line" href="#sequence">See how</a>
+        </div>
+        <ul class="facts">
+          <li>Since <span>1996</span></li>
+          <li>Union Local 487 <span>~16 years</span></li>
+          <li>Ownership <span>Family</span></li>
+          <li>Based in <span>Elk Grove, CA</span></li>
+        </ul>
+      </div>
+    </div>
+    <figure class="band" style="margin-inline:0">
+      <img id="band-img" src="../../assets/img/texture-macro.webp" srcset="../../assets/img/texture-macro.webp 800w, ../../assets/img/texture-macro@2x.webp 1600w" sizes="100vw" alt="" width="800" height="450" fetchpriority="high">
+      <figcaption>Knockdown texture, up close</figcaption>
+    </figure>
+  </section>
+
+  <section class="section seq" id="sequence" aria-labelledby="seq-title">
+    <div class="wrap head">
+      <h2 class="x" id="seq-title">How a hole <span>disappears.</span></h2>
+      <p class="sub">Four real photos from Ray's ceiling repairs. Keep scrolling to walk through them.</p>
+    </div>
+    <div class="seq-sticky">
+      <div class="seq-track" id="seq-track" tabindex="0" aria-label="Repair stages">
+        <figure class="step"><span class="word x">Hole.</span><img src="../../assets/img/ceiling-before.webp" srcset="../../assets/img/ceiling-before.webp 450w, ../../assets/img/ceiling-before@2x.webp 900w" sizes="400px" alt="A rectangular opening cut into a textured kitchen ceiling, framing visible" loading="lazy" width="450" height="800"><figcaption>An opening in a kitchen ceiling.</figcaption></figure>
+        <figure class="step"><span class="word x">Mud.</span><img src="../../assets/img/skim-before.webp" srcset="../../assets/img/skim-before.webp 450w, ../../assets/img/skim-before@2x.webp 900w" sizes="400px" alt="A ceiling patched and skimmed with smooth grey joint compound" loading="lazy" width="450" height="800"><figcaption>Patched and skimmed smooth.</figcaption></figure>
+        <figure class="step"><span class="word x">Texture.</span><img src="../../assets/img/skim-after.webp" srcset="../../assets/img/skim-after.webp 450w, ../../assets/img/skim-after@2x.webp 900w" sizes="400px" alt="The same ceiling sprayed with texture that matches the room" loading="lazy" width="450" height="800"><figcaption>Sprayed to match what's already there.</figcaption></figure>
+        <figure class="step"><span class="word x">Gone.</span><img src="../../assets/img/ceiling-after.webp" srcset="../../assets/img/ceiling-after.webp 450w, ../../assets/img/ceiling-after@2x.webp 900w" sizes="400px" alt="A finished kitchen ceiling with no sign of the opening" loading="lazy" width="450" height="800"><figcaption>Finished. Find the patch.</figcaption></figure>
+      </div>
+      <div class="wrap"><div class="seq-bar" aria-hidden="true"><i></i></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <p class="sentence">Ray fixes <button type="button" aria-pressed="true" data-svc="0">cracks and holes</button>, <button type="button" aria-pressed="false" data-svc="1">popcorn ceilings</button>, <button type="button" aria-pressed="false" data-svc="2">bathroom texture</button>, <button type="button" aria-pressed="false" data-svc="3">patchwork</button> and <button type="button" aria-pressed="false" data-svc="4">water damage</button>.</p>
+      <div class="detail" id="svc-detail" aria-live="polite">
+        <b>Cosmetic repairs &amp; texture matching</b>
+        <p>Cracks, holes and old patches blended into the texture already on your walls and ceilings.</p>
+      </div>
+      <p class="services-note">We also focus on being attentive and on our customer service. With over 30 years of experience, we are proud to consider ourselves professionals.</p>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="x">Field <span>notes.</span></h2>
+        <p class="sub">Two more from Ray's phone. Drag the line on the stairwell.</p>
+      </div>
+      <div class="notes">
+        <figure>
+          <div class="compare" data-compare>
+            <img src="../../assets/img/stairs-after.webp" srcset="../../assets/img/stairs-after.webp 450w, ../../assets/img/stairs-after@2x.webp 900w" sizes="(min-width: 900px) 720px, 92vw" alt="After: smooth, finished stairwell wall beside new wood floors" loading="lazy" width="450" height="800">
+            <div class="compare-before"><img src="../../assets/img/stairs-before.webp" srcset="../../assets/img/stairs-before.webp 450w, ../../assets/img/stairs-before@2x.webp 900w" sizes="(min-width: 900px) 720px, 92vw" alt="Before: stairwell wall masked in plastic during the repair" loading="lazy" width="450" height="800"></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the stairwell before and after">
+            <span class="compare-handle"></span>
+            <span class="compare-tag compare-tag--before tag">Before</span><span class="compare-tag compare-tag--after tag">After</span>
+          </div>
+          <figcaption>Stairwell wall <span>Repaired and finished</span></figcaption>
+        </figure>
+        <figure>
+          <video data-loop src="../../assets/video/popcorn-loop.mp4" poster="../../assets/video/popcorn-poster.jpg" autoplay muted loop playsinline preload="none" aria-label="Ray scraping a popcorn ceiling"></video>
+          <figcaption>Popcorn removal <span>Ray, on the job</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap ray">
+      <figure>
+        <img src="../../assets/img/ray-family.webp" srcset="../../assets/img/ray-family.webp 449w, ../../assets/img/ray-family@2x.webp 898w" sizes="(min-width: 900px) 480px, 92vw" alt="Ray Abreu with his wife and children" loading="lazy" width="449" height="449">
+        <figcaption>Ray, with his wife and children</figcaption>
+      </figure>
+      <div>
+        <h2 class="x">Meet <span>Ray.</span></h2>
+        <table class="spec">
+          <tbody>
+            <tr><th scope="row">Name</th><td>Carlos Raymond Abreu</td></tr>
+            <tr><th scope="row">In drywall since</th><td>1996, right after high school</td></tr>
+            <tr><th scope="row">Trained</th><td>Painters and Tapers Union Local 487, about 16 years</td></tr>
+            <tr><th scope="row">Specialty</th><td>Residential repairs and texture matching</td></tr>
+            <tr><th scope="row">Business</th><td>Family owned and operated, Elk Grove</td></tr>
+          </tbody>
+        </table>
+        <blockquote>“Once I'm in your phone as your drywall guy and have completed a job for you, that's who I become: <span>your drywall guy!</span>”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2 class="x">Call <span>Ray.</span></h2>
+        <a class="phone x" href="tel:+19162891026">(916) 289-1026</a>
+        <p class="promise">Ask for a ballpark or an estimate. We are honest, trustworthy and will treat you like the valued customer that you are.</p>
+        <div class="rev">
+          <a class="btn btn-line" href="http://yelp.com/biz/simply-the-best-drywall-elk-grove" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-star"/></svg>Reviews on Yelp</a>
+          <a class="btn btn-line" href="http://www.homeadvisor.com/rated.SimplyTheBest.14765959.html" target="_blank" rel="noopener">Rated on HomeAdvisor</a>
+        </div>
+      </div>
+      <div class="form-sheet">
+        <form data-demo-form>
+          <div class="two">
+            <label><span>First name <abbr title="required">*</abbr></span><input name="first" autocomplete="given-name" required></label>
+            <label><span>Last name <abbr title="required">*</abbr></span><input name="last" autocomplete="family-name" required></label>
+          </div>
+          <div class="two">
+            <label><span>Email <abbr title="required">*</abbr></span><input type="email" name="email" autocomplete="email" required></label>
+            <label><span>Phone <abbr title="required">*</abbr></span><input type="tel" name="phone" autocomplete="tel" required></label>
+          </div>
+          <label><span>What needs fixing? <abbr title="required">*</abbr></span><textarea name="details" required placeholder="A crack over the door, a doorknob hole, a water stain…"></textarea></label>
+          <button class="btn btn-ink" type="submit">Send to Ray <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p data-form-status role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo" role="img" aria-label="Simply The Best Drywall"></span>
+    <span>© 2026 Simply The Best Drywall · Elk Grove, CA</span>
+    <nav aria-label="Social">
+      <a href="https://www.facebook.com/simplythebestdrywall/" target="_blank" rel="noopener" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/SIMPLYTHEBESTDRYWALL/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a href="http://yelp.com/biz/simply-the-best-drywall-elk-grove" target="_blank" rel="noopener" aria-label="Yelp"><svg aria-hidden="true"><use href="#i-star"/></svg></a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../../assets/stb.js?v=3"></script>
+<script>
+{
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wide = matchMedia('(min-width: 900px)');
+
+  // Tape measure: inch numbers along the blade, length = how far you've read.
+  const tape = document.getElementById('tape');
+  const nums = document.getElementById('tape-nums');
+  const fillNums = () => { nums.innerHTML = Array.from({ length: Math.ceil(innerWidth / 64) + 1 }, (_, i) => `<span>${i + 1}</span>`).join(''); };
+  fillNums();
+
+  // Sequence: pin and slide sideways on wide screens; a swipeable row everywhere else.
+  const seq = document.getElementById('sequence');
+  const track = document.getElementById('seq-track');
+  const pin = () => { seq.classList.toggle('is-pinned', wide.matches && !still); if (!seq.classList.contains('is-pinned')) track.style.transform = ''; };
+  pin(); wide.addEventListener('change', () => { pin(); update(); });
+
+  const band = document.getElementById('band-img');
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    tape.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max) : 0);
+
+    if (!still) {
+      const r = band.parentElement.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < innerHeight) band.style.transform = `translateY(${(r.top / innerHeight) * -8}%)`;
+    }
+
+    if (seq.classList.contains('is-pinned')) {
+      const r = seq.getBoundingClientRect();
+      const travel = seq.offsetHeight - innerHeight;
+      const p = Math.min(1, Math.max(0, -r.top / travel));
+      const overflow = track.scrollWidth - innerWidth + Math.max(32, (innerWidth - 1280) / 2);
+      track.style.transform = `translateX(${-p * Math.max(0, overflow)}px)`;
+      seq.style.setProperty('--sp', p);
+    }
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', () => { fillNums(); update(); });
+  update();
+
+  // Services sentence: each phrase shows its detail.
+  const svc = [
+    ['Cosmetic repairs & texture matching', 'Cracks, holes and old patches blended into the texture already on your walls and ceilings.'],
+    ['Popcorn removal & respray', 'Ceilings scraped, prepped and resprayed for a clean, updated look.'],
+    ['Bathroom retexture', 'Imperfect smooth texture, redone right.'],
+    ['Repairs & patchwork', 'Holes and cut-outs patched and finished to disappear.'],
+    ['Water damage repair', 'Damaged drywall cut out, replaced and blended back in.'],
+  ];
+  const detail = document.getElementById('svc-detail');
+  const btns = document.querySelectorAll('[data-svc]');
+  const show = i => {
+    btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.svc === String(i)));
+    detail.querySelector('b').textContent = svc[i][0];
+    detail.querySelector('p').textContent = svc[i][1];
+  };
+  btns.forEach(b => {
+    b.addEventListener('click', () => show(b.dataset.svc));
+    b.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) show(b.dataset.svc); });
+  });
+}
+</script>
+</body>
+</html>
